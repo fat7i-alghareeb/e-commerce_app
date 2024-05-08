@@ -12,7 +12,6 @@ News App developed with Flutter and API from DummyJson
 ## Screenshots
 
 ### Store App LogIn page
-### Store App LogIn page
 <div style="display:flex;">
     <img src="screenShots/animation.gif" alt="LogIn Page GIF" style="width:30%;">
 </div>
