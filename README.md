@@ -36,11 +36,24 @@ News App developed with Flutter and API from DummyJson
 </div
 
 
+
+
 ### Shimmer Effect 
 <div style="display:flex;">
     <img src="screenShots/image10.jpeg" alt="Heat Map" style="width:30%;">
 </div>
 
+### profile  
+<div style="display:flex;">
+    <img src="screenShots/image6.png" alt="Heat Map" style="width:30%;">
+</div>
+
+### Black Theme 
+<div style="display:flex;">
+    <img src="screenShots/image9.png" alt="Heat Map" style="width:30%;">
+    <img src="screenShots/image7.png" alt="Heat Map" style="width:30%;">
+    <img src="screenShots/image8.png" alt="Heat Map" style="width:30%;">
+</div>
 
 
 ## Technology
@@ -57,3 +70,4 @@ Lightweight and fast database solution for Flutter applications, providing local
 Swiper/Carousel for flutter, with multiple layouts, infinite loop.
 6. Animation<br />
 Add some animation in the app for better experience.
+7. Black Theme
