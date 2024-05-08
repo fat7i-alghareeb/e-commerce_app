@@ -1,17 +1,60 @@
-# store_app
+# store
 
-A new Flutter project.
+News App developed with Flutter and API from DummyJson
 
-## Getting Started
+## Features
+- Animation 
+- Products for all categories
+- Adding products to the cart
+- Ability to search for a specific product
+- Support for Shimmer effect instead of ProgressIndicator
 
-This project is a starting point for a Flutter application.
+## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+### Store App LogIn page
+### Store App LogIn page
+<div style="display:flex;">
+    <img src="screenShots/animation.gif" alt="LogIn Page GIF" style="width:30%;">
+</div>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"#store_app" 
+### Store App Interface
+<div style="display:flex;">
+    <img src="screenShots/image.png" alt="Task Interface" style="width:30%;">
+    <img src="screenShots/image3.png" alt="Task Interface" style="width:30%;">
+</div>
+
+
+### Cart Screen
+<div style="display:flex;">
+    <img src="screenShots/image4.png" alt="Task Interface" style="width:30%;">
+    <img src="screenShots/image2.png" alt="Task Interface" style="width:30%;">
+</div>
+
+### Categories Navigator
+<div style="display:flex;">
+    <img src="screenShots/image1.jpeg" alt="Task Interface" style="width:30%;">
+</div
+
+
+### Shimmer Effect 
+<div style="display:flex;">
+    <img src="screenShots/image10.jpeg" alt="Heat Map" style="width:30%;">
+</div>
+
+
+
+## Technology
+
+1. Blok<br />
+State management library that simplifies project state control and enhances readability.
+2. http<br />
+This package contains a set of high-level functions and classes that make it easy to consume HTTP resources.
+3. MVVM Architecture<br />
+Model-View-ViewModel (MVVM) is a software design pattern that is structured to separate program logic and user interface controls.
+2. Hive<br />
+Lightweight and fast database solution for Flutter applications, providing local storage capabilities.
+5. card_swiper<br />
+Swiper/Carousel for flutter, with multiple layouts, infinite loop.
+6. Animation<br />
+Add some animation in the app for better experience.
