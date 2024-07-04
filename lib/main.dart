@@ -24,22 +24,12 @@ void main() async {
     ),
   );
 
-  SystemChrome.setSystemUIChangeCallback(
-      (systemOverlaysAreVisible) => Future.delayed(
-            const Duration(seconds: 4),
-            () => SystemChrome.setEnabledSystemUIMode(
-              SystemUiMode.manual,
-              overlays: [SystemUiOverlay.top],
-            ),
-          ));
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
-      overlays: [SystemUiOverlay.top]);
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: Colors.transparent,
-    ),
-  );
+  // SystemChrome.setSystemUIOverlayStyle(
+  //   const SystemUiOverlayStyle(
+  //     statusBarColor: Colors.transparent,
+  //     systemNavigationBarColor: Colors.white,
+  //   ),
+  // );
 }
 
 class MyApp extends StatefulWidget {
