@@ -23,13 +23,6 @@ void main() async {
       child: const MyApp(),
     ),
   );
-
-  // SystemChrome.setSystemUIOverlayStyle(
-  //   const SystemUiOverlayStyle(
-  //     statusBarColor: Colors.transparent,
-  //     systemNavigationBarColor: Colors.white,
-  //   ),
-  // );
 }
 
 class MyApp extends StatefulWidget {
@@ -46,7 +39,14 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     //Hive.box<User>("user_box").clear();
     bool userSelectedTheme = BlocProvider.of<UserInfoCubit>(context).userTheme;
-
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: userSelectedTheme
+            ? const Color(0xffeaf0fc)
+            : const Color(0xff1b2026),
+      ),
+    );
     return BlocListener<UserInfoCubit, UserInfoState>(
       listener: (context, state) {
         if (state is EditThemeUserInfo) {

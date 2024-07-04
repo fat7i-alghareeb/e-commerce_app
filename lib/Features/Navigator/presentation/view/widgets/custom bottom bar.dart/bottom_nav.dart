@@ -15,7 +15,7 @@ class CustomBottomBar extends StatelessWidget {
     return Container(
       color: Theme.of(context).colorScheme.secondary.withOpacity(0.07),
       //margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
-      height: 80,
+      height: 70,
       child: ClipRRect(
         // borderRadius: BorderRadius.circular(30),
         child: BackdropFilter(
