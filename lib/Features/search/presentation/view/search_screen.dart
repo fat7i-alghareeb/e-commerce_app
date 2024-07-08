@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../products display(home)/presentation/view/widgets/products_grid_view.dart';
+import '../../../products_display_home/presentation/view/widgets/products_grid_view.dart';
 import '../../../../shared/models/product.dart';
-import '../../../products display(home)/presentation/manger/products cubit/products_cubit.dart';
+import '../../../products_display_home/presentation/manger/products cubit/products_cubit.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key, required this.products});

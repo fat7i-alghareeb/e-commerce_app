@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../utils/assets.dart';
 import '../../utils/router/router_paths.dart';
-import '../../Features/products display(home)/presentation/manger/products cubit/products_cubit.dart';
+import '../../Features/products_display_home/presentation/manger/products cubit/products_cubit.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({

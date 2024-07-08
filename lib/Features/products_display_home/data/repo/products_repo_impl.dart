@@ -15,9 +15,8 @@ class ProductRepoImpl implements ProductsRepo {
   @override
   Future<Either<Failure, List<Product>>> getAllProducts() async {
     try {
-      final data = await apiService.get();
-      final products =
-          data.map((product) => Product.fromJson(product)).toList();
+      final products = await apiService.getProducts();
+
       return right(products);
     } catch (e) {
       if (e is DioException) {
@@ -37,9 +36,8 @@ class ProductRepoImpl implements ProductsRepo {
   Future<Either<Failure, List<Product>>> getCategorizeProduct(
       String category) async {
     try {
-      final data = await apiService.get(endPoint: '/category/$category');
-      final products =
-          data.map((product) => Product.fromJson(product)).toList();
+      final products = await apiService.getCategorizedProducts(category);
+
       return right(products);
     } catch (e) {
       if (e is DioException) {

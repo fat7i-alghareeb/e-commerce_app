@@ -14,8 +14,9 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(ProductAdapter());
   Hive.registerAdapter(UserAdapter());
-  await Hive.openBox<Product>("product_box");
   await Hive.openBox<User>("user_box");
+
+  await Hive.openBox<Product>("product_box");
   setupServiceLocator();
   runApp(
     BlocProvider(

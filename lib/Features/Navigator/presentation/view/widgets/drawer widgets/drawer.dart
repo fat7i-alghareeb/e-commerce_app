@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../utils/router/router_paths.dart';
 import '../drawer%20widgets/categories_card_widget.dart';
 
-import '../../../../../products display(home)/presentation/manger/categories cubit/categories_cubit.dart';
+import '../../../../../products_display_home/presentation/manger/categories cubit/categories_cubit.dart';
 import '../../../../../../utils/constants.dart';
 
 class DrawerWidget extends StatefulWidget {

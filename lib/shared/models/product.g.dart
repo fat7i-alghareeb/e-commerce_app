@@ -17,11 +17,11 @@ class ProductAdapter extends TypeAdapter<Product> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Product(
-      description: fields[5] as String,
-      id: fields[0] as String,
-      image: fields[6] as String,
+      description: fields[4] as String,
+      id: fields[0] as int,
+      image: fields[5] as String,
       title: fields[1] as String,
-      price: fields[2] as String,
+      price: fields[2] as int,
       category: fields[3] as String,
     );
   }
@@ -38,9 +38,9 @@ class ProductAdapter extends TypeAdapter<Product> {
       ..write(obj.price)
       ..writeByte(3)
       ..write(obj.category)
-      ..writeByte(5)
+      ..writeByte(4)
       ..write(obj.description)
-      ..writeByte(6)
+      ..writeByte(5)
       ..write(obj.image);
   }
 
@@ -54,3 +54,25 @@ class ProductAdapter extends TypeAdapter<Product> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Product _$ProductFromJson(Map<String, dynamic> json) => Product(
+      description: json['description'] as String,
+      id: (json['id'] as num).toInt(),
+      image: json['image'] as String,
+      title: json['title'] as String,
+      price: (json['price'] as num).toInt(),
+      category: json['category'] as String,
+    );
+
+Map<String, dynamic> _$ProductToJson(Product instance) => <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'price': instance.price,
+      'category': instance.category,
+      'description': instance.description,
+      'image': instance.image,
+    };

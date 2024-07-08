@@ -1,14 +1,14 @@
 import 'package:dio/dio.dart';
+import 'package:retrofit/http.dart';
+import 'package:store_app/shared/models/product.dart';
+part 'products_services.g.dart';
 
-class ApiService {
-  final Dio _dio;
+@RestApi(baseUrl: "https://fakestoreapi.com/")
+abstract class ApiService {
+  factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
-  final baseUrl = "https://fakestoreapi.com/products";
-
-  ApiService(this._dio);
-
-  Future<List<dynamic>> get({String? endPoint}) async {
-    var response = await _dio.get('$baseUrl${endPoint ?? ""}');
-    return response.data;
-  }
+  @GET('/products')
+  Future<List<Product>> getProducts();
+  @GET('/products/category/{category}')
+  Future<List<Product>> getCategorizedProducts(@Path('category') String id);
 }
