@@ -53,12 +53,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
         ),
         AnimatedText(
           animation: _titleAnimation,
-          text: Text(
+          text: const Text(
             'Welcome',
             style: TextStyle(
               fontSize: 45,
               fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.tertiary,
             ),
           ),
         ),
@@ -69,7 +68,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             maxLines: 3,
             style: TextStyle(
               fontSize: 15,
-              color: Theme.of(context).colorScheme.tertiary.withOpacity(.9),
+              color: Theme.of(context).colorScheme.tertiary,
             ),
           ),
         ),

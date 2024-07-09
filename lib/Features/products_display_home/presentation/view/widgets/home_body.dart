@@ -22,12 +22,12 @@ class HomeBody extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const HomeUpperPart(),
-            Padding(
-              padding: const EdgeInsets.all(20),
+            const Padding(
+              padding: EdgeInsets.all(20),
               child: Text(
                 "New Products",
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.tertiary,
+                  // color: Theme.of(context).colorScheme.tertiary,
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   fontStyle: FontStyle.italic,

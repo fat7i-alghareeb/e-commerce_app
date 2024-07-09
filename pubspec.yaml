@@ -38,6 +38,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.6
   flutter_slidable: ^3.1.0
+  flutter_svg: ^2.0.10+1
   get_it: ^7.6.7
   hive: ^2.2.3
   hive_flutter: ^1.1.0
@@ -71,6 +72,7 @@ flutter:
     - images/
     - images/thumbnails/
     - images/categories/
+    - images/bottom nav bar icons/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

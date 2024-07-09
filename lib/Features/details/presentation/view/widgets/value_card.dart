@@ -21,9 +21,8 @@ class ValueCard extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           child: Text(
             info,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24,
-              color: Theme.of(context).colorScheme.tertiary,
             ),
           ),
         ),

@@ -67,7 +67,9 @@ class CartProductWidget extends StatelessWidget {
                         categoriesAvailable[product.category] ??
                             AssetsImages.electronics,
                         height: 24,
-                        color: Theme.of(context).colorScheme.tertiary,
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? Colors.black
+                            : Colors.white,
                       ),
                     ],
                   ),

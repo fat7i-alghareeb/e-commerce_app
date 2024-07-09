@@ -21,16 +21,17 @@ class DetailsScreen extends StatelessWidget {
     return AppBar(
       leading: IconButton(
         onPressed: () => Navigator.pop(context),
-        icon: Icon(
+        icon: const Icon(
           Icons.arrow_back_ios_new_rounded,
-          color: Theme.of(context).colorScheme.tertiary,
           size: 25,
         ),
       ),
       title: Image.asset(
         categoriesAvailable[product.category] ?? AssetsImages.electronics,
         height: 35,
-        color: Theme.of(context).colorScheme.tertiary,
+        color: Theme.of(context).brightness == Brightness.light
+            ? Colors.black
+            : Colors.white,
       ),
       elevation: 0,
     );

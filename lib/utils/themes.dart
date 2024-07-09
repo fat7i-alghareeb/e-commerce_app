@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
 ///////////////////////////////////////////////////////////////////
-const lightMainColor = Color.fromARGB(255, 252, 253, 255);
-const lightSecondColor = Color.fromARGB(134, 8, 83, 212);
-const lightThirdlyColor = Color.fromARGB(255, 0, 0, 0);
+const lightMainColor = Color(0xFFFFFFFF);
+const lightSecondColor = Color(0xFF8E6CEF);
+const lightThirdlyColor = Color(0xFFF4F4F4);
 ///////////////////////////////////////////////////////////////////
-const darkMainColor = Color.fromARGB(255, 25, 25, 25);
-const darkSecondColor = Color.fromARGB(255, 55, 115, 219);
-const darkThirdlyColor = Color.fromARGB(255, 255, 255, 255);
+const darkMainColor = Color(0xFF1D182A);
+const darkSecondColor = Color(0xFF8E6CEF);
+const darkThirdlyColor = Color(0xFF342F3F);
 
 ///////////////////////////////////////////////////////////////////
 ThemeData lightMode = ThemeData(
+  //iconTheme: IconThemeData(color: Colors),
   brightness: Brightness.light,
   cardColor: lightThirdlyColor,
   appBarTheme: const AppBarTheme(
@@ -18,7 +19,7 @@ ThemeData lightMode = ThemeData(
     elevation: 0,
     centerTitle: true,
     titleTextStyle: TextStyle(
-      color: lightThirdlyColor,
+      color: Colors.black,
       fontSize: 20,
       fontWeight: FontWeight.bold,
     ),
@@ -38,7 +39,7 @@ ThemeData darkMode = ThemeData(
     elevation: 0,
     centerTitle: true,
     titleTextStyle: TextStyle(
-      color: darkThirdlyColor,
+      color: Colors.white,
       fontSize: 20,
       fontWeight: FontWeight.bold,
     ),

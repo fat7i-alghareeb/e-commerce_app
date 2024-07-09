@@ -15,7 +15,6 @@ void main() async {
   Hive.registerAdapter(ProductAdapter());
   Hive.registerAdapter(UserAdapter());
   await Hive.openBox<User>("user_box");
-
   await Hive.openBox<Product>("product_box");
   setupServiceLocator();
   runApp(

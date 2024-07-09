@@ -1,3 +1,5 @@
+import 'package:flutter_svg/flutter_svg.dart';
+
 import '../../../../shared/cubits/cubit/user_info_cubit.dart';
 import '../../../../shared/cubits/cubit/user_info_state.dart';
 import 'package:flutter/material.dart';
@@ -91,8 +93,13 @@ class _UserPageState extends State<UserPage> {
                     child: ThemeSwitch(
                       lightTheme: userInfo.lightThem,
                     ),
-                  )
+                  ),
 //////////////////////////////////////////////////////////////////////////////////////
+                  SvgPicture.asset(
+                    "images/Vector.svg",
+                    colorFilter: const ColorFilter.mode(
+                        7 > 1 ? Colors.black : Colors.amber, BlendMode.srcIn),
+                  )
                 ],
               );
             },
