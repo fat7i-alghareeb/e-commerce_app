@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:store_app/utils/assets.dart';
 
 import 'nav_icon.dart';
 
@@ -12,8 +13,8 @@ class CustomBottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Theme.of(context).colorScheme.secondary.withOpacity(0.07),
+    return SizedBox(
+      // color: Theme.of(context).colorScheme.secondary.withOpacity(0.0),
       //margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 0),
       height: 70,
       child: ClipRRect(
@@ -29,21 +30,21 @@ class CustomBottomBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 NavigatorIcon(
-                  icon: Icons.home,
+                  icon: AssetsImages.homeIcon,
                   setChange: () {
                     onItemTapped(0);
                   },
                   changing: selectedIndex == 0 ? true : false,
                 ),
                 NavigatorIcon(
-                  icon: Icons.shopping_cart_rounded,
+                  icon: AssetsImages.bagIcon,
                   setChange: () {
                     onItemTapped(1);
                   },
                   changing: selectedIndex == 1 ? true : false,
                 ),
                 NavigatorIcon(
-                  icon: Icons.person,
+                  icon: AssetsImages.userIcon,
                   setChange: () {
                     onItemTapped(2);
                   },

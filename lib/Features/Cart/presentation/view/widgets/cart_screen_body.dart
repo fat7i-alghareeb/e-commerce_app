@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../shared/models/product.dart';
-import '../../../../Navigator/presentation/view/widgets/slidable.dart';
+import 'slidable.dart';
 import '../../manger/cubit/cart_product_cubit.dart';
 import 'cart_product_widget.dart';
 

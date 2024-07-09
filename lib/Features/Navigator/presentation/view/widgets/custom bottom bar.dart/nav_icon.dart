@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class NavigatorIcon extends StatelessWidget {
   final VoidCallback setChange;
   final bool changing;
-  final IconData icon;
+  final String icon;
   const NavigatorIcon({
     super.key,
     required this.setChange,
@@ -19,16 +20,27 @@ class NavigatorIcon extends StatelessWidget {
         child: Container(
           color: Colors.transparent,
           padding:
-              changing ? const EdgeInsets.only(bottom: 5) : EdgeInsets.zero,
+              changing ? const EdgeInsets.only(bottom: 8) : EdgeInsets.zero,
           child: Center(
-            child: Icon(
-              icon,
-              color: changing
+              child: SvgPicture.asset(
+            icon,
+            colorFilter: ColorFilter.mode(
+              changing
                   ? Theme.of(context).colorScheme.secondary
-                  : Theme.of(context).colorScheme.secondary.withOpacity(0.1),
-              size: changing ? 40 : 30,
+                  : Theme.of(context).colorScheme.secondary.withOpacity(0.12),
+              BlendMode.srcIn,
             ),
-          ),
+            height: changing ? 35 : 28,
+          )
+
+              //  Icon(
+              //   icon,
+              //   color: changing
+              //       ? Theme.of(context).colorScheme.secondary
+              //       : Theme.of(context).colorScheme.secondary.withOpacity(0.1),
+              //   size: changing ? 40 : 30,
+              // ),
+              ),
         ),
       ),
     );

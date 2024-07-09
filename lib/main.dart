@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
       SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
         systemNavigationBarColor: userSelectedTheme
-            ? const Color(0xffeaf0fc)
+            ? const Color(0xffffffff)
             : const Color(0xff1b2026),
       ),
     );
