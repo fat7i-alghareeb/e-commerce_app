@@ -7,9 +7,11 @@ class AppImage extends StatelessWidget {
   const AppImage({
     super.key,
     required this.product,
+    this.alignment,
   });
 
   final Product product;
+  final Alignment? alignment;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,7 @@ class AppImage extends StatelessWidget {
         child: CachedImage(
           url: product.image,
           boxFit: BoxFit.contain,
+          alignment: alignment,
         ),
       ),
     );

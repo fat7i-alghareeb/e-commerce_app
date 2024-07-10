@@ -17,12 +17,11 @@ class ProductsGridView extends StatelessWidget {
       physics: isScrollable
           ? const AlwaysScrollableScrollPhysics()
           : const NeverScrollableScrollPhysics(),
-      padding: const EdgeInsets.symmetric(horizontal: 15),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 25,
         crossAxisSpacing: 25,
-        childAspectRatio: 0.6,
+        childAspectRatio: 0.52,
       ),
       itemCount: products.length,
       itemBuilder: (context, index) {

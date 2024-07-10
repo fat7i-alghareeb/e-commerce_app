@@ -21,6 +21,7 @@ abstract class AssetsImages {
   static const String info = "images/comment-info.png";
   static const String menu = "images/menu.png";
   static const String details = "images/text-file.png";
+  static const String search = "images/search.svg";
   //////////////////////////////////////////////////////////////////////
   static const String userIcon = "images/bottom nav bar icons/user.svg";
   static const String homeIcon = "images/bottom nav bar icons/home.svg";

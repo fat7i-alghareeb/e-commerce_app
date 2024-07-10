@@ -21,7 +21,6 @@ ThemeData lightMode = ThemeData(
     titleTextStyle: TextStyle(
       color: Colors.black,
       fontSize: 20,
-      fontWeight: FontWeight.bold,
     ),
   ),
   primaryColor: lightMainColor,
@@ -41,7 +40,6 @@ ThemeData darkMode = ThemeData(
     titleTextStyle: TextStyle(
       color: Colors.white,
       fontSize: 20,
-      fontWeight: FontWeight.bold,
     ),
   ),
   brightness: Brightness.dark,

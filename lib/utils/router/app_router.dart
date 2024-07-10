@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/Features/products_display_home/presentation/view/categories_list_screen.dart';
 
 import '../../Features/Cart/data/repo/cart_products_repo_impl.dart';
 import '../../Features/Cart/presentation/manger/cubit/cart_product_cubit.dart';
@@ -75,14 +76,16 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) {
             final List<Product> products = settings.arguments as List<Product>;
-
             return BlocProvider(
-                create: (context) =>
-                    ProductsCubit(getIt.get<ProductRepoImpl>()),
-                child: SearchScreen(products: products));
+              create: (context) => ProductsCubit(getIt.get<ProductRepoImpl>()),
+              child: SearchScreen(products: products),
+            );
           },
         );
-
+      case KRouter.categoriesListScreen:
+        return MaterialPageRoute(
+          builder: (context) => const CategoriesListScreen(),
+        );
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(

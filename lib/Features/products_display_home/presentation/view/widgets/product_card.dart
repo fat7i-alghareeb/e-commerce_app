@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../shared/models/product.dart';
 import '../../../../../shared/widgets/app_image.dart';
 import '../../../../../utils/assets.dart';
@@ -24,47 +23,53 @@ class ProductCard extends StatelessWidget {
       },
       child: Card(
         margin: const EdgeInsets.all(0),
-        elevation: 8,
-        color: Theme.of(context).colorScheme.primary,
+        elevation: 2,
+        color: Theme.of(context).colorScheme.tertiary,
         shadowColor: Theme.of(context).colorScheme.secondary.withOpacity(.3),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            AppImage(product: product),
-            Padding(
-              padding: const EdgeInsets.only(left: 8, top: 10),
-              child: Image.asset(
-                categoriesAvailable[product.category] ??
-                    AssetsImages.electronics,
-                height: 24,
-                color: Theme.of(context).colorScheme.tertiary,
+            Expanded(
+              child: AppImage(
+                product: product,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8, top: 10),
-              child: Text(
-                product.title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                // softWrap: false,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 17,
-                ),
+              padding: const EdgeInsets.only(left: 4, top: 15, bottom: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    categoriesAvailable[product.category] ??
+                        AssetsImages.electronics,
+                    height: 24,
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Text(
+                    product.title,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    // softWrap: false,
+                    style: const TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Text(
+                    '\$${product.price} USD',
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w900,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 8, bottom: 20, top: 10),
-              child: Text(
-                '\$${product.price} USD',
-                style: const TextStyle(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.bold,
-                  //fontSize: 15,
-                ),
-              ),
-            ),
+            )
           ],
         ),
       ),

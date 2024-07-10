@@ -33,7 +33,7 @@ class CategoriesCard extends StatelessWidget {
       child: Card(
         color: isSelected
             ? Theme.of(context).colorScheme.secondary
-            : Theme.of(context).colorScheme.primary.withOpacity(0.8),
+            : Theme.of(context).colorScheme.tertiary.withOpacity(0.8),
         shadowColor: isSelected
             ? Theme.of(context).colorScheme.primary
             : Theme.of(context).colorScheme.tertiary,
