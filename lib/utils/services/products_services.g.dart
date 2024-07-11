@@ -13,7 +13,7 @@ class _ApiService implements ApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://fakestoreapi.com/';
+    baseUrl ??= 'https://dummyjson.com/';
   }
 
   final Dio _dio;
@@ -21,13 +21,14 @@ class _ApiService implements ApiService {
   String? baseUrl;
 
   @override
-  Future<List<Product>> getProducts() async {
+  Future<ApiResponse> getProducts(Map<String, dynamic> queries) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.addAll(queries);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result =
-        await _dio.fetch<List<dynamic>>(_setStreamType<List<Product>>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponse>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -43,20 +44,18 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    var _value = _result.data!
-        .map((dynamic i) => Product.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final _value = ApiResponse.fromJson(_result.data!);
     return _value;
   }
 
   @override
-  Future<List<Product>> getCategorizedProducts(String id) async {
+  Future<ApiResponse> getCategorizedProducts(String id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _result =
-        await _dio.fetch<List<dynamic>>(_setStreamType<List<Product>>(Options(
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<ApiResponse>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -72,9 +71,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    var _value = _result.data!
-        .map((dynamic i) => Product.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final _value = ApiResponse.fromJson(_result.data!);
     return _value;
   }
 

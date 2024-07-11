@@ -1,14 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
-import 'package:store_app/shared/models/product.dart';
+import 'package:retrofit/retrofit.dart';
+import 'package:store_app/shared/models/api_response.dart';
 part 'products_services.g.dart';
 
-@RestApi(baseUrl: "https://fakestoreapi.com/")
+@RestApi(baseUrl: "https://dummyjson.com/")
 abstract class ApiService {
   factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
 
   @GET('/products')
-  Future<List<Product>> getProducts();
+  Future<ApiResponse> getProducts(@Queries() Map<String, dynamic> queries);
   @GET('/products/category/{category}')
-  Future<List<Product>> getCategorizedProducts(@Path('category') String id);
+  Future<ApiResponse> getCategorizedProducts(@Path('category') String id);
 }

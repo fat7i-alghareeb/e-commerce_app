@@ -11,13 +11,15 @@ class CartProductCubit extends Cubit<CartProductState> {
   void saveProduct(Product product) {
     try {
       Product x = Product(
-        description: product.description,
-        id: product.id,
-        image: product.image,
-        title: product.title,
-        price: product.price,
-        category: product.category,
-      );
+          description: product.description,
+          id: product.id,
+          images: product.images,
+          title: product.title,
+          price: product.price,
+          category: product.category,
+          brand: product.brand,
+          reviews: product.reviews,
+          thumbnail: product.thumbnail);
       _cartProducts.add(x);
       cartProductsRepo.saveProduct(x);
       emit(CartProductAddedSuccessfully());
