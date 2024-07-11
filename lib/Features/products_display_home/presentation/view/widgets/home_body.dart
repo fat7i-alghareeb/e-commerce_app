@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/utils/constants.dart';
 import 'package:store_app/utils/router/router_paths.dart';
-
 import '../../../../../shared/models/product.dart';
 import '../../manger/categories cubit/categories_cubit.dart';
 import 'home_upper_part.dart';
@@ -18,11 +16,11 @@ class HomeBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     //final count = products.length >= 30 ? 15 : (products.length + 1) / 2;
-    double grideHeight = (width * .495) * products.length;
+    double grideHeight = (width * .7) * products.length;
     return SafeArea(
       child: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
+          padding: const EdgeInsets.only(left: 20, right: 20, top: 25),
           child: SizedBox(
             width: double.infinity,
             height: grideHeight,
@@ -34,9 +32,10 @@ class HomeBody extends StatelessWidget {
                   height: 20,
                 ),
                 const SizedBox(
-                  height: 150,
+                  height: 180,
                   child: CategoriesPart(),
                 ),
+                const SizedBox(height: 5),
                 Text(
                   "New In",
                   style: TextStyle(
@@ -82,7 +81,7 @@ class _CategoriesPartState extends State<CategoriesPart> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      // mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -156,7 +155,7 @@ class CategoriesListView extends StatelessWidget {
               child: Text(
                 textAlign: TextAlign.center,
                 categories[0][index],
-                maxLines: 1,
+                maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(fontWeight: FontWeight.w500),
               ),

@@ -32,7 +32,10 @@ class CartProductWidget extends StatelessWidget {
           height: 140,
           child: Row(
             children: [
-              AppImage(product: product),
+              AppImage(
+                image: product.images[0],
+                id: product.id,
+              ),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 8.0, left: 8, right: 5),
@@ -65,7 +68,7 @@ class CartProductWidget extends StatelessWidget {
                       ),
                       Image.asset(
                         categoriesAvailable[product.category] ??
-                            AssetsImages.electronics,
+                            AssetsImages.groceries,
                         height: 24,
                         color: Theme.of(context).brightness == Brightness.light
                             ? Colors.black

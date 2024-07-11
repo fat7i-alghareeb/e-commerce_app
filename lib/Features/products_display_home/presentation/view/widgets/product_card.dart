@@ -31,7 +31,8 @@ class ProductCard extends StatelessWidget {
           children: [
             Expanded(
               child: AppImage(
-                product: product,
+                image: product.thumbnail,
+                id: product.id,
               ),
             ),
             Padding(
@@ -39,14 +40,14 @@ class ProductCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.asset(
-                    categoriesAvailable[product.category] ??
-                        AssetsImages.electronics,
-                    height: 24,
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
+                  // Image.asset(
+                  //   categoriesAvailable[product.category] ??
+                  //       AssetsImages.groceries,
+                  //   height: 24,
+                  // ),
+                  // const SizedBox(
+                  //   height: 8,
+                  // ),
                   Text(
                     product.title,
                     maxLines: 2,

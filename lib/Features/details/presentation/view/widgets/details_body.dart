@@ -31,7 +31,8 @@ class DetailsBody extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 15, top: 10),
                         child: AppImage(
-                          product: product,
+                          image: product.images[0],
+                          id: product.id,
                         ),
                       ),
                       Text(

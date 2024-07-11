@@ -27,7 +27,7 @@ class DetailsScreen extends StatelessWidget {
         ),
       ),
       title: Image.asset(
-        categoriesAvailable[product.category] ?? AssetsImages.electronics,
+        categoriesAvailable[product.category] ?? AssetsImages.groceries,
         height: 35,
         color: Theme.of(context).brightness == Brightness.light
             ? Colors.black
