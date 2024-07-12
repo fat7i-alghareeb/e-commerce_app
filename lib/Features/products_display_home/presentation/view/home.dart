@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../manger/products cubit/products_cubit.dart';
 import '../manger/products cubit/products_state.dart';
 import 'widgets/home_body.dart';
-import 'widgets/main_screen_shimmer.dart';
+import 'widgets/home widgets/main_screen_shimmer.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../shared/widgets/shimmer.dart';
+import '../../../../../../shared/widgets/shimmer.dart';
 
 class MainScreenShimmer extends StatelessWidget {
   const MainScreenShimmer({

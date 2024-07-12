@@ -16,12 +16,12 @@ class AppImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 2 / 2,
+      aspectRatio: 2.5 / 2,
       child: Hero(
         tag: id,
         child: CachedImage(
           url: image,
-          boxFit: BoxFit.cover,
+          boxFit: BoxFit.fitWidth,
           alignment: alignment,
         ),
       ),

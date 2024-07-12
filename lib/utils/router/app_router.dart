@@ -84,7 +84,10 @@ class AppRouter {
         );
       case KRouter.categoriesListScreen:
         return MaterialPageRoute(
-          builder: (context) => const CategoriesListScreen(),
+          builder: (context) => BlocProvider(
+            create: (context) => CategoriesCubit(getIt.get<ProductRepoImpl>()),
+            child: const CategoriesListScreen(),
+          ),
         );
       default:
         return MaterialPageRoute(

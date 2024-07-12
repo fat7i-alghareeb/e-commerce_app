@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../../shared/models/product.dart';
-import '../../../../../shared/widgets/app_image.dart';
-import '../../../../../utils/assets.dart';
-import '../../../../../utils/constants.dart';
-import '../../../../../utils/router/router_paths.dart';
+import '../models/product.dart';
+import 'app_image.dart';
+import '../../utils/router/router_paths.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -40,19 +38,10 @@ class ProductCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Image.asset(
-                  //   categoriesAvailable[product.category] ??
-                  //       AssetsImages.groceries,
-                  //   height: 24,
-                  // ),
-                  // const SizedBox(
-                  //   height: 8,
-                  // ),
                   Text(
                     product.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    // softWrap: false,
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.normal,
@@ -65,7 +54,7 @@ class ProductCard extends StatelessWidget {
                     '\$${product.price} USD',
                     style: const TextStyle(
                       fontWeight: FontWeight.w900,
-                      fontSize: 12,
+                      fontSize: 11,
                     ),
                   ),
                 ],

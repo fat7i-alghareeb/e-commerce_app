@@ -88,8 +88,6 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     return CategoriesCard(
                       name: categories[0][index],
                       image: categories[1][index],
-                      isSelected: selectedIndex == index,
-                      index: index,
                     );
                   },
                 ),

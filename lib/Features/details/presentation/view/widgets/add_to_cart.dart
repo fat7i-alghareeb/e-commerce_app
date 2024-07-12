@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../utils/assets.dart';
-
 import '../../../../Cart/presentation/manger/cubit/cart_product_cubit.dart';
 import '../../../../../shared/models/product.dart';
 import '../../../../Cart/presentation/manger/cubit/cart_product_state.dart';
@@ -59,59 +57,63 @@ class _AddToCartWidgetState extends State<AddToCartWidget>
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return AnimatedBuilder(
-      animation: _animationController,
-      builder: (context, child) {
-        return GestureDetector(
-          onTap: () => BlocProvider.of<CartProductCubit>(context)
-              .saveProduct(widget.product),
-          child: Container(
-            height: size.height * .08,
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(50),
-                topRight: Radius.circular(50),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: AnimatedBuilder(
+        animation: _animationController,
+        builder: (context, child) {
+          return GestureDetector(
+            onTap: () => BlocProvider.of<CartProductCubit>(context)
+                .saveProduct(widget.product),
+            child: Container(
+              height: size.height * .07,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: _colorAnimation.value,
               ),
-              color: _colorAnimation.value,
-            ),
-            child: Center(
-              child: BlocListener<CartProductCubit, CartProductState>(
-                listener: (context, state) {
-                  if (state is CartProductAddedSuccessfully) {
-                    _animationController.forward();
-                  }
-                },
-                child: AnimatedBuilder(
-                  animation: _scaleAnimation,
-                  builder: (context, child) {
-                    return Transform.scale(
-                      scale: _scaleAnimation.value,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            AssetsImages.addToCart,
-                            height: 30,
-                            color: Theme.of(context).colorScheme.primary,
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            widget.fromHome ? "Add To Cart" : "Add another one",
-                            style: TextStyle(
-                              fontSize: 24,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
+              child: Center(
+                child: BlocListener<CartProductCubit, CartProductState>(
+                  listener: (context, state) {
+                    if (state is CartProductAddedSuccessfully) {
+                      _animationController.forward();
+                    }
                   },
+                  child: AnimatedBuilder(
+                    animation: _scaleAnimation,
+                    builder: (context, child) {
+                      return Transform.scale(
+                        scale: _scaleAnimation.value,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(
+                              widget.fromHome ? "\$148" : "Add another one",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              widget.fromHome
+                                  ? "Add To Bag"
+                                  : "Add another one",
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
                 ),
               ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }

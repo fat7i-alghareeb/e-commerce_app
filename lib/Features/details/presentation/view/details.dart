@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../utils/assets.dart';
+
 import '../../../../shared/models/product.dart';
-import '../../../../utils/constants.dart';
 import 'widgets/details_body.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -12,28 +11,7 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: detailsAppBar(context),
       body: DetailsBody(product: product, fromHome: fromHome),
-    );
-  }
-
-  AppBar detailsAppBar(BuildContext context) {
-    return AppBar(
-      leading: IconButton(
-        onPressed: () => Navigator.pop(context),
-        icon: const Icon(
-          Icons.arrow_back_ios_new_rounded,
-          size: 25,
-        ),
-      ),
-      title: Image.asset(
-        categoriesAvailable[product.category] ?? AssetsImages.groceries,
-        height: 35,
-        color: Theme.of(context).brightness == Brightness.light
-            ? Colors.black
-            : Colors.white,
-      ),
-      elevation: 0,
     );
   }
 }

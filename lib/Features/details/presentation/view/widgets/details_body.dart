@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:store_app/shared/widgets/sliver_sized_box.dart';
 import '../../../../../shared/models/product.dart';
-import '../../../../../shared/widgets/app_image.dart';
 import 'add_to_cart.dart';
-import 'key_card.dart';
-import 'value_card.dart';
+import 'product_main_details_widget.dart';
+import 'product_sub_details.dart';
+import 'quantity_widget.dart';
+import 'reviews_widget.dart';
 
 class DetailsBody extends StatelessWidget {
   const DetailsBody({
@@ -17,52 +18,45 @@ class DetailsBody extends StatelessWidget {
   final bool fromHome;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: Stack(
-            children: [
-              SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 15, top: 10),
-                        child: AppImage(
-                          image: product.images[0],
-                          id: product.id,
-                        ),
-                      ),
-                      Text(
-                        product.title,
-                        style: const TextStyle(
-                          fontSize: 26,
-                          fontStyle: FontStyle.italic,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      const KeyCard(name: "Price:"),
-                      ValueCard(info: "\$ ${product.price}"),
-                      const KeyCard(name: "Details:"),
-                      ValueCard(info: product.description),
-                      const SizedBox(height: 150),
-                    ],
-                  ),
+    return SafeArea(
+      child: Column(
+        children: [
+          Expanded(
+            child: Stack(
+              children: [
+                CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: ProductMainDetailsWidget(product: product),
+                    ),
+                    const SliverSizedBox(
+                      height: 34,
+                    ),
+                    const SliverToBoxAdapter(child: QuantityWidget()),
+                    const SliverSizedBox(
+                      height: 24,
+                    ),
+                    SliverToBoxAdapter(
+                      child: ProductSubDetailsWidget(product: product),
+                    ),
+                    const SliverSizedBox(
+                      height: 10,
+                    ),
+                    ReviewsWidget(reviews: product.reviews!),
+                    const SliverSizedBox(
+                      height: 100,
+                    ),
+                  ],
                 ),
-              ),
-              Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                child: AddToCartWidget(product: product, fromHome: fromHome),
-              ),
-            ],
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: AddToCartWidget(product: product, fromHome: fromHome),
+                )
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

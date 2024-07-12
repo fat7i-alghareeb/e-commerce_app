@@ -3,8 +3,8 @@ import 'package:json_annotation/json_annotation.dart';
 import 'review.dart';
 part 'product.g.dart';
 
-@HiveType(typeId: 0)
 @JsonSerializable()
+@HiveType(typeId: 0)
 class Product {
   @HiveField(0)
   final int id;
@@ -26,13 +26,12 @@ class Product {
   String? shippingInformation;
   @HiveField(9)
   String? availabilityStatus;
+  final List<Review>? reviews;
   @HiveField(10)
-  final List<Review> reviews;
-  @HiveField(11)
   String? returnPolicy;
-  @HiveField(12)
+  @HiveField(11)
   final List<String> images;
-  @HiveField(13)
+  @HiveField(12)
   final String thumbnail;
 
   Product({
@@ -46,7 +45,7 @@ class Product {
     this.brand,
     this.shippingInformation,
     this.availabilityStatus,
-    required this.reviews,
+    this.reviews,
     this.returnPolicy,
     required this.images,
     required this.thumbnail,

@@ -14,12 +14,17 @@ ThemeData lightMode = ThemeData(
   //iconTheme: IconThemeData(color: Colors),
   brightness: Brightness.light,
   cardColor: lightThirdlyColor,
+
+  fontFamily: "oswald",
+
   appBarTheme: const AppBarTheme(
     color: lightMainColor,
     elevation: 0,
     centerTitle: true,
     titleTextStyle: TextStyle(
+      fontFamily: "oswald",
       color: Colors.black,
+      overflow: TextOverflow.ellipsis,
       fontSize: 20,
     ),
   ),

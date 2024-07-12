@@ -12,13 +12,14 @@ class CategoriesCubit extends Cubit<CategoriesState> {
   final List<List<String>> _categories = [];
   List<Product> categorizeProduct = [];
   CategoriesCubit(this.productRepo) : super(CategoriesInitial());
-  get categories {
+  void setCategories() {
     _categoriesName = categoriesAvailable.keys.toList();
     _categories.add(_categoriesName);
     _categoriesImage = categoriesAvailable.values.toList();
     _categories.add(_categoriesImage);
-    return _categories;
   }
+
+  get categories => _categories;
 
   Future<void> fetchCategorizeProduct(String category) async {
     emit(CategoriesLoading());

@@ -11,9 +11,11 @@ import 'utils/router/app_router.dart';
 import 'utils/service_locator.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(ProductAdapter());
   Hive.registerAdapter(UserAdapter());
+  //Hive.registerAdapter(ReviewAdapter());
   await Hive.openBox<User>("user_box");
   await Hive.openBox<Product>("product_box");
   setupServiceLocator();

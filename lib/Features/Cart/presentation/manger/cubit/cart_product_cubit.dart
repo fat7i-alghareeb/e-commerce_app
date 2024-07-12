@@ -10,18 +10,18 @@ class CartProductCubit extends Cubit<CartProductState> {
   List<Product> _cartProducts = [];
   void saveProduct(Product product) {
     try {
-      Product x = Product(
-          description: product.description,
-          id: product.id,
-          images: product.images,
-          title: product.title,
-          price: product.price,
-          category: product.category,
-          brand: product.brand,
-          reviews: product.reviews,
-          thumbnail: product.thumbnail);
-      _cartProducts.add(x);
-      cartProductsRepo.saveProduct(x);
+      // Product x = Product(
+      //     description: product.description,
+      //     id: product.id,
+      //     images: product.images,
+      //     title: product.title,
+      //     price: product.price,
+      //     category: product.category,
+      //     brand: product.brand,
+      //     reviews: product.reviews,
+      //     thumbnail: product.thumbnail);
+      _cartProducts.add(product);
+      cartProductsRepo.saveProduct(product);
       emit(CartProductAddedSuccessfully());
     } catch (e) {
       emit(CartProductFailure());

@@ -27,17 +27,16 @@ class ProductAdapter extends TypeAdapter<Product> {
       brand: fields[7] as String?,
       shippingInformation: fields[8] as String?,
       availabilityStatus: fields[9] as String?,
-      reviews: (fields[10] as List).cast<Review>(),
-      returnPolicy: fields[11] as String?,
-      images: (fields[12] as List).cast<String>(),
-      thumbnail: fields[13] as String,
+      returnPolicy: fields[10] as String?,
+      images: (fields[11] as List).cast<String>(),
+      thumbnail: fields[12] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Product obj) {
     writer
-      ..writeByte(14)
+      ..writeByte(13)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -59,12 +58,10 @@ class ProductAdapter extends TypeAdapter<Product> {
       ..writeByte(9)
       ..write(obj.availabilityStatus)
       ..writeByte(10)
-      ..write(obj.reviews)
-      ..writeByte(11)
       ..write(obj.returnPolicy)
-      ..writeByte(12)
+      ..writeByte(11)
       ..write(obj.images)
-      ..writeByte(13)
+      ..writeByte(12)
       ..write(obj.thumbnail);
   }
 
@@ -94,8 +91,8 @@ Product _$ProductFromJson(Map<String, dynamic> json) => Product(
       brand: json['brand'] as String?,
       shippingInformation: json['shippingInformation'] as String?,
       availabilityStatus: json['availabilityStatus'] as String?,
-      reviews: (json['reviews'] as List<dynamic>)
-          .map((e) => Review.fromJson(e as Map<String, dynamic>))
+      reviews: (json['reviews'] as List<dynamic>?)
+          ?.map((e) => Review.fromJson(e as Map<String, dynamic>))
           .toList(),
       returnPolicy: json['returnPolicy'] as String?,
       images:

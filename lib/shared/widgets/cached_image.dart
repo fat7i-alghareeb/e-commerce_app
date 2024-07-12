@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 class CachedImage extends StatelessWidget {
   final String url;
-  final BoxFit boxFit;
+  final BoxFit? boxFit;
   final Alignment? alignment;
   const CachedImage({
     super.key,
     required this.url,
-    required this.boxFit,
+    this.boxFit,
     this.alignment,
   });
 

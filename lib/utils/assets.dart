@@ -22,6 +22,7 @@ abstract class AssetsImages {
   static const String womensBags = "images/categories icons/womens-bags.png";
   static const String womensDresses =
       "images/categories icons/womens-dresses.png";
+
   static const String womensJewellery =
       "images/categories icons/womens-jewellery.png";
   static const String womensShoes = "images/categories icons/womens-shoes.png";
@@ -49,6 +50,9 @@ abstract class AssetsImages {
   static const String menu = "images/menu.png";
   static const String details = "images/text-file.png";
   static const String search = "images/search.svg";
+  static const String plus = "images/plus.svg";
+  static const String minus = "images/minus.svg";
+  static const String backArrow = "images/backArrow.svg";
   //////////////////////////////////////////////////////////////////////
   static const String userIcon = "images/bottom nav bar icons/user.svg";
   static const String homeIcon = "images/bottom nav bar icons/home.svg";

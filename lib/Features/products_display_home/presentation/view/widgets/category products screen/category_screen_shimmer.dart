@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-import '../../../../../shared/widgets/shimmer.dart';
+import '../../../../../../shared/widgets/shimmer.dart';
 
 class CategoryScreenShimmer extends StatelessWidget {
   const CategoryScreenShimmer({
