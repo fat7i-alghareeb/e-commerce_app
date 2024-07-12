@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../../../../utils/router/router_paths.dart';
 
-import '../../../../../../utils/constants.dart';
+import '../../../../../../utils/router/router_paths.dart';
 
 class CategoriesCard extends StatelessWidget {
   const CategoriesCard({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/shared/widgets/sliver_sized_box.dart';
+import '../../../../../shared/widgets/sliver_sized_box.dart';
 import '../../../../../shared/models/product.dart';
 import 'add_to_cart.dart';
 import 'product_main_details_widget.dart';

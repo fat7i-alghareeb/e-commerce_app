@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../Cart/presentation/manger/cubit/cart_product_cubit.dart';
+
 import '../../../../../shared/models/product.dart';
+import '../../../../Cart/presentation/manger/cubit/cart_product_cubit.dart';
 import '../../../../Cart/presentation/manger/cubit/cart_product_state.dart';
 
 class AddToCartWidget extends StatefulWidget {

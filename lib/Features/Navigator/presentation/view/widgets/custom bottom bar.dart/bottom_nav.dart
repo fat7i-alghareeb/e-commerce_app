@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:store_app/utils/assets.dart';
+import '../../../../../../utils/assets.dart';
 
 import 'nav_icon.dart';
 

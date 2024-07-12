@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
 import 'package:retrofit/retrofit.dart';
-import 'package:store_app/shared/models/api_response.dart';
+import '../../shared/models/api_response.dart';
 part 'products_services.g.dart';
 
 @RestApi(baseUrl: "https://dummyjson.com/")

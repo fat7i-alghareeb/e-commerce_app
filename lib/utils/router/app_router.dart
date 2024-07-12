@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/Features/products_display_home/presentation/view/categories_list_screen.dart';
+import '../../Features/products_display_home/presentation/view/categories_list_screen.dart';
 
 import '../../Features/Cart/data/repo/cart_products_repo_impl.dart';
 import '../../Features/Cart/presentation/manger/cubit/cart_product_cubit.dart';

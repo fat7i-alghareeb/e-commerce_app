@@ -1,12 +1,13 @@
-import 'widgets/cart_screen_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../shared/models/product.dart';
 import '../../../../shared/widgets/custom_app_bar.dart';
 import '../../../../utils/service_locator.dart';
 import '../../data/repo/cart_products_repo_impl.dart';
 import '../manger/cubit/cart_product_cubit.dart';
 import '../manger/cubit/cart_product_state.dart';
+import 'widgets/cart_screen_body.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});

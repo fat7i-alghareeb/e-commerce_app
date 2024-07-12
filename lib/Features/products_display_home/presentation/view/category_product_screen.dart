@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'widgets/category products screen/category_screen_shimmer.dart';
+
 import '../../../Navigator/presentation/view/widgets/drawer widgets/drawer.dart';
 import '../manger/categories cubit/categories_cubit.dart';
 import '../manger/categories cubit/categories_state.dart';
+import 'widgets/category products screen/category_screen_shimmer.dart';
 import 'widgets/category_product_screen_body.dart';
 
 class CategoryProducts extends StatelessWidget {

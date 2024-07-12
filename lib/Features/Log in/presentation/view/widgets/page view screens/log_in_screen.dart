@@ -1,10 +1,10 @@
-import '../../../../../../shared/cubits/cubit/user_info_cubit.dart';
-import '../../../../../../utils/assets.dart';
-import '../../../../../../utils/router/router_paths.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../shared/cubits/cubit/user_info_cubit.dart';
+import '../../../../../../utils/assets.dart';
+import '../../../../../../utils/router/router_paths.dart';
 import '../log in page animations/animated_divider_and_image.dart';
 import '../log in page animations/animated_text_field.dart';
 import '../log in page widgets/log_in_button.dart';

@@ -1,7 +1,8 @@
-import '../../../../../utils/router/router_paths.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+
 import '../../../../../shared/models/user.dart';
+import '../../../../../utils/router/router_paths.dart';
 import 'animated_logo.dart';
 import 'sliding_text.dart';
 
