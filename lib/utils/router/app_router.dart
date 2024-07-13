@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../Features/products_display_home/presentation/view/categories_list_screen.dart';
-
 import '../../Features/Cart/data/repo/cart_products_repo_impl.dart';
 import '../../Features/Cart/presentation/manger/cubit/cart_product_cubit.dart';
 import '../../Features/Log%20in/presentation/view/log_in_screens.dart';
 import '../../Features/Navigator/presentation/view/navigator.dart';
-import '../../Features/Splash/presentation/views/splash_view.dart';
 import '../../Features/details/presentation/view/details.dart';
 import '../../Features/products_display_home/data/repo/products_repo_impl.dart';
 import '../../Features/products_display_home/presentation/manger/categories cubit/categories_cubit.dart';
@@ -20,10 +18,6 @@ import 'router_paths.dart';
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case KRouter.splash:
-        return MaterialPageRoute(
-          builder: (_) => const SplashView(),
-        );
       case KRouter.logInPage:
         return MaterialPageRoute(
           builder: (_) => const LogInPageViewScreens(),

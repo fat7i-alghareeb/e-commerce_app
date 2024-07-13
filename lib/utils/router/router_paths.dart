@@ -1,5 +1,4 @@
 abstract class KRouter {
-  static const String splash = "/";
   static const String mainNavigator = "/mainNavigator";
   static const String logInPage = "/logInPage";
 

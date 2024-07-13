@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:store_app/utils/router/router_paths.dart';
 
 import 'shared/cubits/cubit/user_info_cubit.dart';
 import 'shared/cubits/cubit/user_info_state.dart';
@@ -61,6 +62,9 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Store',
+        initialRoute: Hive.box<User>("user_box").isEmpty
+            ? KRouter.logInPage
+            : KRouter.mainNavigator,
         onGenerateRoute: _appRouter.generateRoute,
         theme: lightMode,
         darkTheme: darkMode,

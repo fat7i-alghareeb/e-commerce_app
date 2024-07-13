@@ -1,0 +1,10 @@
+flutter_native_splash:
+  color: "#8E6CEF"
+  color_dark: "#8E6CEF"
+
+  android_12:
+    color: "#8E6CEF"
+    color_dark: "#8E6CEF"
+    icon_background_color: "#8E6CEF"
+    icon_background_color_dark: "#8E6CEF"
+    image: images/stroeSplash.png
