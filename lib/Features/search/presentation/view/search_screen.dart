@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:store_app/shared/widgets/app_icon.dart';
+import 'package:store_app/shared/widgets/sliver_sized_box.dart';
+import 'package:store_app/utils/assets.dart';
 
 import '../../../../shared/models/product.dart';
 import '../../../../shared/widgets/products_grid_view.dart';
@@ -47,63 +51,98 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
+//todo add clear button to textfield
+//todo add filter row
+//todo refactor the code
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-            HapticFeedback.heavyImpact();
-          },
-          icon: Icon(
-            Icons.arrow_back_ios_new_rounded,
-            color: Theme.of(context).colorScheme.tertiary,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: 15,
+            right: 15,
+            top: 20,
           ),
-        ),
-        title: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Theme.of(context).colorScheme.tertiary.withOpacity(.1),
-          ),
-          child: Row(
+          child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: SizedBox(
-                  width: 20,
-                  height: 20,
-                  child: Icon(
-                    Icons.search,
-                    color: Theme.of(context).colorScheme.tertiary,
+              Row(
+                children: [
+                  AppIcon(
+                    widget: SvgPicture.asset(
+                      AssetsImages.backArrow,
+                      height: 20,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      HapticFeedback.heavyImpact();
+                    },
                   ),
-                ),
-              ),
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: TextField(
-                    controller: _searchController,
-                    cursorColor: Theme.of(context).colorScheme.tertiary,
-                    decoration: const InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Enter product name',
-                      hintStyle: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey,
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(26),
+                        color: Theme.of(context).colorScheme.tertiary,
+                      ),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 20.0),
+                            child: SizedBox(
+                              width: 20,
+                              height: 20,
+                              child: SvgPicture.asset(
+                                AssetsImages.search,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: TextField(
+                                controller: _searchController,
+                                cursorColor:
+                                    Theme.of(context).colorScheme.tertiary,
+                                decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'Enter product name',
+                                  hintStyle: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.grey.withOpacity(0.5),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                child: CustomScrollView(
+                  slivers: [
+                    ProductSliverGrid(
+                      products: _filteredProducts,
+                    ),
+                    const SliverSizedBox(
+                      height: 50,
+                    )
+                  ],
                 ),
               ),
             ],
           ),
         ),
-      ),
-      body: ProductsGridView(
-        products: _filteredProducts,
-        isScrollable: true,
       ),
     );
   }

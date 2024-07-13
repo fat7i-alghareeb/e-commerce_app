@@ -17,7 +17,6 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(ProductAdapter());
   Hive.registerAdapter(UserAdapter());
-  //Hive.registerAdapter(ReviewAdapter());
   await Hive.openBox<User>("user_box");
   await Hive.openBox<Product>("product_box");
   setupServiceLocator();
@@ -41,7 +40,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    //Hive.box<User>("user_box").clear();
     bool userSelectedTheme = BlocProvider.of<UserInfoCubit>(context).userTheme;
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
