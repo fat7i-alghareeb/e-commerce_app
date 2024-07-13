@@ -1,10 +1,8 @@
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../../shared/widgets/app_image.dart';
-
 import '../../../../../utils/router/router_paths.dart';
 import 'package:flutter/material.dart';
 import '../../../../../utils/assets.dart';
-
-import '../../../../../utils/constants.dart';
 import '../../../../../shared/models/product.dart';
 
 class CartProductWidget extends StatelessWidget {
@@ -19,21 +17,26 @@ class CartProductWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, KRouter.detailsScreen, arguments: {
-          "fromHome": false,
-          "product": product,
-        });
+        Navigator.pushNamed(
+          context,
+          KRouter.detailsScreen,
+          arguments: {
+            "fromHome": false,
+            "product": product,
+          },
+        );
       },
       child: Card(
-        color: Theme.of(context).colorScheme.primary.withOpacity(1),
-        elevation: 5,
+        color: Theme.of(context).colorScheme.tertiary,
+        shadowColor: Theme.of(context).colorScheme.secondary.withOpacity(.05),
+        elevation: 1,
         margin: EdgeInsets.zero,
         child: SizedBox(
-          height: 140,
+          height: 120,
           child: Row(
             children: [
               AppImage(
-                image: product.images[0],
+                image: product.thumbnail,
                 id: product.id,
               ),
               Expanded(
@@ -59,30 +62,25 @@ class CartProductWidget extends StatelessWidget {
                       Text(
                         '\$${product.price} USD',
                         style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          //fontSize: 15,
-                        ),
+                            //fontSize: 15,
+                            ),
                       ),
                       const SizedBox(
                         height: 7,
-                      ),
-                      Image.asset(
-                        categoriesAvailable[product.category] ??
-                            AssetsImages.groceries,
-                        height: 24,
-                        color: Theme.of(context).brightness == Brightness.light
-                            ? Colors.black
-                            : Colors.white,
                       ),
                     ],
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Icon(
-                  Icons.arrow_back_ios_new_rounded,
-                  size: 30,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: SvgPicture.asset(
+                  AssetsImages.backArrow,
+                  height: 25,
+                  colorFilter: const ColorFilter.mode(
+                    Colors.grey,
+                    BlendMode.srcIn,
+                  ),
                 ),
               )
             ],

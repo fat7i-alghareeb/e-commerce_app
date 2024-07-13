@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/shared/widgets/sliver_sized_box.dart';
 
 import '../../../../../shared/models/product.dart';
 import 'slidable.dart';
@@ -17,26 +19,65 @@ class CartScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: products.length,
-      padding: const EdgeInsets.all(0),
-      itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: SlidableWidget(
-            child: CartProductWidget(
-              product: products[index],
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 15.0,
+        right: 15,
+        top: 34,
+      ),
+      child: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                "Cart",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
-            deleteAction: (context) {
-              BlocProvider.of<CartProductCubit>(context).unSaveProduct(index);
-              HapticFeedback.vibrate();
-            },
-            confirmAction: (context) {
-              null;
+          ),
+          const SliverSizedBox(
+            height: 36,
+          ),
+          SliverToBoxAdapter(
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                "Remove All ",
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Theme.of(context).colorScheme.secondary,
+                ),
+              ),
+            ),
+          ),
+          const SliverSizedBox(
+            height: 20,
+          ),
+          SliverList.builder(
+            itemCount: products.length,
+            //   padding: const EdgeInsets.all(0),
+            itemBuilder: (context, index) {
+              return SlidableWidget(
+                child: CartProductWidget(
+                  product: products[index],
+                ),
+                deleteAction: (context) {
+                  BlocProvider.of<CartProductCubit>(context)
+                      .unSaveProduct(index);
+                  HapticFeedback.vibrate();
+                },
+                confirmAction: (context) {
+                  null;
+                },
+              );
             },
           ),
-        );
-      },
+        ],
+      ),
     );
   }
 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'details_titles.dart';
-
 import '../../../../../shared/models/review.dart';
 import '../../../../../utils/assets.dart';
 import 'package:timeago/timeago.dart' as timeago;

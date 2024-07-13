@@ -42,7 +42,7 @@ class DetailsBody extends StatelessWidget {
                     const SliverSizedBox(
                       height: 10,
                     ),
-                    ReviewsWidget(reviews: product.reviews!),
+                    ReviewsWidget(reviews: product.reviews ?? []),
                     const SliverSizedBox(
                       height: 100,
                     ),

@@ -35,14 +35,6 @@ abstract class AssetsImages {
   static const String storeLogo = "images/storeLogo.png";
   static const String user = "images/user.png";
 //////////////////////////////////////////////////////////////////////
-  static const thumbs = [
-    "images/thumbnails/thumb0.png",
-    "images/thumbnails/thumb1.png",
-    "images/thumbnails/thumb2.png",
-    "images/thumbnails/thumb3.png",
-    "images/thumbnails/thumb4.png",
-    "images/thumbnails/thumb5.png",
-  ];
 
 //////////////////////////////////////////////////////////////////////
   static const String addToCart = "images/add-to-cart.png";
@@ -53,6 +45,7 @@ abstract class AssetsImages {
   static const String plus = "images/plus.svg";
   static const String minus = "images/minus.svg";
   static const String backArrow = "images/backArrow.svg";
+  static const String emptyBag = "images/emptyBag.png";
   //////////////////////////////////////////////////////////////////////
   static const String userIcon = "images/bottom nav bar icons/user.svg";
   static const String homeIcon = "images/bottom nav bar icons/home.svg";

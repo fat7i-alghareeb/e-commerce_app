@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../shared/models/product.dart';
 import 'details_sub_titles.dart';
 import 'details_titles.dart';
-import 'reviews_widget.dart';
 
 class ProductSubDetailsWidget extends StatelessWidget {
   const ProductSubDetailsWidget({super.key, required this.product});
@@ -62,7 +60,7 @@ class ProductSubDetailsWidget extends StatelessWidget {
           height: 16,
         ),
         DetailsSubTitlesWidget(
-          text: "${product.reviews!.length} Reviews",
+          text: "${product.reviews?.length ?? "0"} Reviews",
         ),
         const SizedBox(height: 5),
         Divider(
