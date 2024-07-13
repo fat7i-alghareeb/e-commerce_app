@@ -23,13 +23,19 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
   }
 
   bool isValid = true;
-
+//todo fixing focus when keyboard closed
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       contentPadding: const EdgeInsets.all(10),
       backgroundColor: Theme.of(context).colorScheme.primary,
-      title: const Text("Update your Info"),
+      title: const Text(
+        "Update your Info",
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       content: TextField(
         controller: widget.controller,
         cursorColor: Theme.of(context).colorScheme.tertiary,
@@ -41,7 +47,7 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
             },
             icon: Icon(
               Icons.clear_rounded,
-              color: Theme.of(context).colorScheme.tertiary,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
           filled: true,
@@ -50,12 +56,11 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
           hintStyle: TextStyle(
             fontSize: 13,
             color: Theme.of(context).colorScheme.tertiary,
-            fontWeight: FontWeight.w100,
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: const BorderRadius.all(Radius.circular(15)),
             borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.tertiary,
+              color: Theme.of(context).colorScheme.secondary,
               width: 4,
             ),
           ),
@@ -80,10 +85,10 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
               });
             }
           },
-          child: Text(
+          child: const Text(
             "Edit",
             style: TextStyle(
-              color: Theme.of(context).colorScheme.tertiary,
+              color: Colors.black,
             ),
           ),
         ),
