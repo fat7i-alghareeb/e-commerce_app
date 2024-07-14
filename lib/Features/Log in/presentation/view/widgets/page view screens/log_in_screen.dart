@@ -38,6 +38,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
     initAnimations();
   }
 
+//todo solve the focus problem when keyboard closed
   @override
   void dispose() {
     _controller.dispose();
@@ -83,12 +84,9 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                     begin: const Offset(0, -1),
                     end: Offset.zero,
                   ).animate(_animation),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.asset(
-                      AssetsImages.storeLogo,
-                      height: 200,
-                    ),
+                  child: Image.asset(
+                    AssetsImages.storeLogo,
+                    height: 150,
                   ),
                 ),
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -170,7 +168,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   void initAnimations() {
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 650),
     );
     _animation = CurvedAnimation(
       parent: _controller,
@@ -179,7 +177,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
 /////////////////////////////////////////////////////////////////////////
     _downAnimationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 400),
     );
     _downAnimation = CurvedAnimation(
       parent: _downAnimationController,
@@ -188,7 +186,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
 /////////////////////////////////////////////////////////////////////////
     _dividerAnimationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 400),
     );
     _dividerAnimation = CurvedAnimation(
       parent: _dividerAnimationController,
@@ -197,7 +195,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
 /////////////////////////////////////////////////////////////////////////
     _colorAnimationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 400),
     );
     _colorAnimation =
         IntTween(begin: 0, end: 255).animate(_colorAnimationController);

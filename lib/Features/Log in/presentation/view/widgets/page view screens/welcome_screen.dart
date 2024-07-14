@@ -45,11 +45,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
       children: [
         AnimatedClipPath(
           clipperAnimation: _clipperAnimationLarge,
-          color: Theme.of(context).colorScheme.secondary,
+          color: const Color(0xFF8E6CEF),
         ),
         AnimatedClipPath(
           clipperAnimation: _clipperAnimationSmall,
-          color: const Color.fromRGBO(25, 118, 210, 1),
+          color: const Color.fromARGB(255, 122, 86, 221),
         ),
         AnimatedText(
           animation: _titleAnimation,
@@ -63,12 +63,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
         ),
         AnimatedText(
           animation: _subTitleAnimation,
-          text: Text(
+          text: const Text(
             'This free ECommerce app to show my knowledge\n I hope you like it \nThanks :) ',
             maxLines: 3,
             style: TextStyle(
               fontSize: 15,
-              color: Theme.of(context).colorScheme.tertiary,
             ),
           ),
         ),
@@ -105,7 +104,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 //////////////////////////////////////////////////////////////////////////////////////////////
     _clipperAnimationControllerLarge = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 400),
     );
     _clipperAnimationLarge = Tween<double>(
       begin: 0.0,
@@ -115,7 +114,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 //////////////////////////////////////////////////////////////////////////////////////////////
     _clipperAnimationControllerSmall = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 400),
     );
     _clipperAnimationSmall = Tween<double>(
       begin: 0.0,
@@ -125,7 +124,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 //////////////////////////////////////////////////////////////////////////////////////////////
     _titleController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 600),
+      duration: const Duration(milliseconds: 500),
     );
     _titleAnimation = Tween<double>(
       begin: 0,
@@ -134,7 +133,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 //////////////////////////////////////////////////////////////////////////////////////////////
     _subTitleController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 400),
     );
     _subTitleAnimation = Tween<double>(
       begin: 0,
@@ -143,7 +142,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 //////////////////////////////////////////////////////////////////////////////////////////////
     _iconController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 400),
     );
     _iconAnimation = Tween<double>(
       begin: 0,

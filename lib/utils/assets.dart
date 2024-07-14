@@ -32,7 +32,7 @@ abstract class AssetsImages {
   //////////////////////////////////////////////////////////////////////
 
   static const String google = "images/google.png";
-  static const String storeLogo = "images/storeLogo.png";
+  static const String storeLogo = "images/StoreIcon.png";
   static const String user = "images/user.png";
 //////////////////////////////////////////////////////////////////////
 
