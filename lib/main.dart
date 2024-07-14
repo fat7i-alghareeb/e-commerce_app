@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
         title: 'Store',
         initialRoute: Hive.box<User>("user_box").isEmpty
             ? KRouter.logInPage
-            : KRouter.logInPage,
+            : KRouter.mainNavigator,
         onGenerateRoute: _appRouter.generateRoute,
         theme: lightMode,
         darkTheme: darkMode,

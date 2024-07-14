@@ -1,37 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/product.dart';
 import 'product_card.dart';
-
-class ProductsGridView extends StatelessWidget {
-  final List<Product> products;
-  final bool isScrollable;
-  const ProductsGridView({
-    super.key,
-    required this.products,
-    required this.isScrollable,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-      physics: isScrollable
-          ? const AlwaysScrollableScrollPhysics()
-          : const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 25,
-        crossAxisSpacing: 25,
-        childAspectRatio: 0.52,
-      ),
-      itemCount: products.length,
-      itemBuilder: (context, index) {
-        return ProductCard(
-          product: products[index],
-        );
-      },
-    );
-  }
-}
+import 'shimmer.dart';
 
 class ProductSliverGrid extends StatelessWidget {
   const ProductSliverGrid({
@@ -56,6 +26,30 @@ class ProductSliverGrid extends StatelessWidget {
           return ProductCard(product: product);
         },
         childCount: products.length,
+      ),
+    );
+  }
+}
+
+class ProductGridShimmerEffects extends StatelessWidget {
+  const ProductGridShimmerEffects({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverGrid(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 25,
+        crossAxisSpacing: 15,
+        childAspectRatio: 0.55,
+      ),
+      delegate: SliverChildBuilderDelegate(
+        childCount: 20,
+        (context, index) => const ShimmerWidget(
+          borderRadius: 15,
+        ),
       ),
     );
   }
