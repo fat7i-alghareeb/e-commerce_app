@@ -69,10 +69,9 @@ class AppRouter {
       case KRouter.searchScreen:
         return MaterialPageRoute(
           builder: (_) {
-            final List<Product> products = settings.arguments as List<Product>;
             return BlocProvider(
               create: (context) => ProductsCubit(getIt.get<ProductRepoImpl>()),
-              child: SearchScreen(products: products),
+              child: const SearchScreen(),
             );
           },
         );

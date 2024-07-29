@@ -10,6 +10,9 @@ abstract class ApiService {
 
   @GET('/products')
   Future<ApiResponse> getProducts(@Queries() Map<String, dynamic> queries);
+  @GET('/products/search')
+  Future<ApiResponse> getSearchProducts(
+      @Queries() Map<String, dynamic> queries);
   @GET('/products/category/{category}')
   Future<ApiResponse> getCategorizedProducts(@Path('category') String id);
 }

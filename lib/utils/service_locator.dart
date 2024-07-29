@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-
+import 'package:store_app/Features/search/data/repo/search_repo.dart';
 import '../Features/Cart/data/repo/cart_products_repo_impl.dart';
 import '../Features/products_display_home/data/repo/products_repo_impl.dart';
 import 'services/products_services.dart';
@@ -15,6 +15,7 @@ void setupServiceLocator() {
     ),
   );
   getIt.registerSingleton<CartProductsRepoImpl>(CartProductsRepoImpl());
+  getIt.registerSingleton<SearchRepo>(SearchRepo(getIt.get<ApiService>()));
 }
 
 Dio createAndSetupDio() {

@@ -47,6 +47,7 @@ abstract class AssetsImages {
   static const String backArrow = "images/backArrow.svg";
   static const String arrow = "images/Arrow.svg";
   static const String emptyBag = "images/emptyBag.png";
+  static const String searchPng = "images/search.png";
   //////////////////////////////////////////////////////////////////////
   static const String userIcon = "images/bottom nav bar icons/user.svg";
   static const String homeIcon = "images/bottom nav bar icons/home.svg";
