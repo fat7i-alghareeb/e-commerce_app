@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import 'dialog_widget.dart';
 
@@ -30,9 +31,9 @@ class _EditPersonalInfoWidgetState extends State<EditPersonalInfoWidget> {
       padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10),
       child: Card(
         margin: EdgeInsets.zero,
-        color: Theme.of(context).colorScheme.tertiary,
+        color: context.neutralColor(),
         elevation: 10,
-        shadowColor: Theme.of(context).colorScheme.secondary.withOpacity(.05),
+        shadowColor: context.accentColor().withOpacity(.05),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
           child: Row(
@@ -59,7 +60,7 @@ class _EditPersonalInfoWidgetState extends State<EditPersonalInfoWidget> {
                 icon: Icon(
                   Icons.settings,
                   size: 32,
-                  color: Theme.of(context).colorScheme.secondary,
+                  color: context.accentColor(),
                 ),
               ),
             ],

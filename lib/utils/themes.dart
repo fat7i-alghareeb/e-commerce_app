@@ -1,58 +1,44 @@
 import 'package:flutter/material.dart';
 
+const accentColor = Color(0xFF8E6CEF);
 ///////////////////////////////////////////////////////////////////
 const lightMainColor = Color(0xFFFFFFFF);
-const lightSecondColor = Color(0xFF8E6CEF);
-const lightThirdlyColor = Color(0xFFF4F4F4);
+const lightOnPrimaryColor = Colors.black;
+const lightNeutralColor = Color(0xFFF4F4F4);
 ///////////////////////////////////////////////////////////////////
 const darkMainColor = Color(0xFF1D182A);
-const darkSecondColor = Color(0xFF8E6CEF);
-const darkThirdlyColor = Color(0xFF342F3F);
+const darkOnPrimaryColor = Colors.white;
+const darkNeutralColor = Color(0xFF342F3F);
 
 ///////////////////////////////////////////////////////////////////
 ThemeData lightMode = ThemeData(
-  //iconTheme: IconThemeData(color: Colors),
   brightness: Brightness.light,
-  cardColor: lightThirdlyColor,
-
   fontFamily: "oswald",
-
-  appBarTheme: const AppBarTheme(
-    color: lightMainColor,
-    elevation: 0,
-    centerTitle: true,
-    titleTextStyle: TextStyle(
-      fontFamily: "oswald",
-      color: Colors.black,
-      overflow: TextOverflow.ellipsis,
-      fontSize: 20,
-    ),
-  ),
   primaryColor: lightMainColor,
   scaffoldBackgroundColor: lightMainColor,
+  appBarTheme: const AppBarTheme(
+    backgroundColor: lightMainColor,
+  ),
   colorScheme: const ColorScheme.light(
     primary: lightMainColor,
-    tertiary: lightThirdlyColor,
-    secondary: lightSecondColor,
+    onPrimary: lightOnPrimaryColor,
+    tertiary: lightNeutralColor,
+    secondary: accentColor,
   ),
 );
 ///////////////////////////////////////////////////////////////
 ThemeData darkMode = ThemeData(
-  appBarTheme: const AppBarTheme(
-    color: darkMainColor,
-    elevation: 0,
-    centerTitle: true,
-    titleTextStyle: TextStyle(
-      color: Colors.white,
-      fontSize: 20,
-    ),
-  ),
   brightness: Brightness.dark,
+  fontFamily: "oswald",
+  appBarTheme: const AppBarTheme(
+    backgroundColor: darkMainColor,
+  ),
   primaryColor: darkMainColor,
   scaffoldBackgroundColor: darkMainColor,
   colorScheme: const ColorScheme.dark(
     primary: darkMainColor,
-    tertiary: darkThirdlyColor,
-    secondary: darkSecondColor,
+    onPrimary: darkOnPrimaryColor,
+    tertiary: darkNeutralColor,
+    secondary: accentColor,
   ),
 );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../../utils/assets.dart';
 import '../../../cubit/search_cubit.dart';
@@ -20,10 +21,10 @@ class CustomTextField extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(26),
-        color: Theme.of(context).colorScheme.tertiary,
+        color: context.neutralColor(),
         border: Border.all(
           color: searchFocusNode.hasFocus
-              ? Theme.of(context).colorScheme.secondary
+              ? context.accentColor()
               : Colors.transparent,
         ),
       ),
@@ -52,7 +53,7 @@ class CustomTextField extends StatelessWidget {
                   }
                 },
                 textInputAction: TextInputAction.search,
-                cursorColor: Theme.of(context).colorScheme.tertiary,
+                cursorColor: context.neutralColor(),
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Enter product name',

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/utils/assets.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../shared/widgets/products_grid_view.dart';
 import '../../cubit/search_cubit.dart';
@@ -29,7 +30,7 @@ class SearchStates extends StatelessWidget {
           return SliverFillRemaining(
             child: Center(
               child: CircularProgressIndicator(
-                color: Theme.of(context).colorScheme.secondary,
+                color: context.accentColor(),
               ),
             ),
           );

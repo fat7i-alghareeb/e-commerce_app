@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../../shared/widgets/app_icon.dart';
 import '../../../../../../utils/assets.dart';
@@ -42,6 +43,7 @@ class HomeUpperPart extends StatelessWidget {
                   widget: Image.asset(
                     AssetsImages.menu,
                     height: 30,
+                    color: context.onPrimaryColor(),
                   ),
                 ),
               )
@@ -60,7 +62,7 @@ class HomeUpperPart extends StatelessWidget {
               height: 45,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(32),
-                color: Theme.of(context).colorScheme.tertiary,
+                color: context.neutralColor(),
               ),
               child: Padding(
                 padding: const EdgeInsets.only(left: 16),

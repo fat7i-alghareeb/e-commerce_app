@@ -1,4 +1,5 @@
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 import '../../../../../shared/widgets/app_image.dart';
 import '../../../../../utils/router/router_paths.dart';
 import 'package:flutter/material.dart';
@@ -27,8 +28,8 @@ class CartProductWidget extends StatelessWidget {
         );
       },
       child: Card(
-        color: Theme.of(context).colorScheme.tertiary,
-        shadowColor: Theme.of(context).colorScheme.secondary.withOpacity(.05),
+        color: context.neutralColor(),
+        shadowColor: context.accentColor().withOpacity(.05),
         elevation: 1,
         margin: EdgeInsets.zero,
         child: SizedBox(
@@ -77,8 +78,8 @@ class CartProductWidget extends StatelessWidget {
                 child: SvgPicture.asset(
                   AssetsImages.backArrow,
                   height: 25,
-                  colorFilter: const ColorFilter.mode(
-                    Colors.grey,
+                  colorFilter: ColorFilter.mode(
+                    context.neutralColor(),
                     BlendMode.srcIn,
                   ),
                 ),

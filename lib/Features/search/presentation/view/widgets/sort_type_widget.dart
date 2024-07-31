@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 class SortTypeWidget extends StatelessWidget {
   const SortTypeWidget({
@@ -17,9 +18,7 @@ class SortTypeWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(
           20,
         ),
-        color: isSelected
-            ? Theme.of(context).colorScheme.secondary
-            : Colors.grey[200],
+        color: isSelected ? context.accentColor() : Colors.grey[200],
       ),
       child: Center(
         child: Text(

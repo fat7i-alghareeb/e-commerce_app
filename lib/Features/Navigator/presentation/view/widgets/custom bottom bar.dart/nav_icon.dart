@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 class NavigatorIcon extends StatelessWidget {
   final VoidCallback setChange;
@@ -26,8 +27,8 @@ class NavigatorIcon extends StatelessWidget {
             icon,
             colorFilter: ColorFilter.mode(
               changing
-                  ? Theme.of(context).colorScheme.secondary
-                  : Theme.of(context).colorScheme.secondary.withOpacity(0.12),
+                  ? context.accentColor()
+                  : context.accentColor().withOpacity(0.12),
               BlendMode.srcIn,
             ),
             height: changing ? 35 : 28,
@@ -36,8 +37,8 @@ class NavigatorIcon extends StatelessWidget {
               //  Icon(
               //   icon,
               //   color: changing
-              //       ? Theme.of(context).colorScheme.secondary
-              //       : Theme.of(context).colorScheme.secondary.withOpacity(0.1),
+              //       ? context.accentColor()
+              //       : context.accentColor().withOpacity(0.1),
               //   size: changing ? 40 : 30,
               // ),
               ),

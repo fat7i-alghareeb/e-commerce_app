@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../../utils/router/router_paths.dart';
 
@@ -23,8 +24,8 @@ class CategoriesCard extends StatelessWidget {
         HapticFeedback.heavyImpact();
       },
       child: Card(
-        color: Theme.of(context).colorScheme.tertiary.withOpacity(0.8),
-        shadowColor: Theme.of(context).colorScheme.secondary.withOpacity(.05),
+        color: context.neutralColor().withOpacity(0.8),
+        shadowColor: context.accentColor().withOpacity(.05),
         elevation: 2,
         margin: EdgeInsets.zero,
         child: ListTile(

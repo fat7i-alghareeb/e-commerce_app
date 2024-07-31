@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 import '../../../../../utils/assets.dart';
 import 'show_bottom_sheet_button.dart';
 
@@ -27,9 +28,9 @@ class ProfileInfo extends StatelessWidget {
         ),
         Card(
           margin: EdgeInsets.zero,
-          color: Theme.of(context).colorScheme.tertiary,
+          color: context.neutralColor(),
           elevation: 10,
-          shadowColor: Theme.of(context).colorScheme.secondary.withOpacity(.05),
+          shadowColor: context.accentColor().withOpacity(.05),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 13),
             child: Row(

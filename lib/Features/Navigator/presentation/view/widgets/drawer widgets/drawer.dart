@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 import '../../../../../../utils/router/router_paths.dart';
 import '../drawer%20widgets/categories_card_widget.dart';
 
@@ -49,8 +50,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 },
                 child: Card(
                   color: -1 == selectedIndex
-                      ? Theme.of(context).colorScheme.secondary
-                      : Theme.of(context).colorScheme.primary.withOpacity(0.8),
+                      ? context.accentColor()
+                      : context.primaryColor().withOpacity(0.8),
                   elevation: 2,
                   child: SizedBox(
                     height: 90,
@@ -61,8 +62,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                           fontWeight: FontWeight.w600,
                           fontSize: 18,
                           color: -1 == selectedIndex
-                              ? Theme.of(context).colorScheme.primary
-                              : Theme.of(context).colorScheme.tertiary,
+                              ? context.primaryColor()
+                              : context.neutralColor(),
                         ),
                       ),
                     ),
@@ -77,7 +78,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     fontWeight: FontWeight.w600,
                     fontStyle: FontStyle.italic,
                     fontSize: 20,
-                    color: Theme.of(context).colorScheme.tertiary,
+                    color: context.neutralColor(),
                   ),
                 ),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../shared/models/product.dart';
 import '../../../../../utils/assets.dart';
@@ -53,7 +54,7 @@ class ProductMainDetailsWidget extends StatelessWidget {
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w500,
-              color: Theme.of(context).colorScheme.secondary,
+              color: context.accentColor(),
             ),
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 class AlertDialogWidget extends StatefulWidget {
   final String title;
@@ -28,7 +29,7 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
   Widget build(BuildContext context) {
     return AlertDialog(
       contentPadding: const EdgeInsets.all(10),
-      backgroundColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: context.primaryColor(),
       title: const Text(
         "Update your Info",
         style: TextStyle(
@@ -38,7 +39,7 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
       ),
       content: TextField(
         controller: widget.controller,
-        cursorColor: Theme.of(context).colorScheme.tertiary,
+        cursorColor: context.neutralColor(),
         decoration: InputDecoration(
           suffixIcon: IconButton(
             onPressed: () {
@@ -47,7 +48,7 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
             },
             icon: Icon(
               Icons.clear_rounded,
-              color: Theme.of(context).colorScheme.secondary,
+              color: context.accentColor(),
             ),
           ),
           filled: true,
@@ -55,19 +56,19 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
           hintText: "Enter new info",
           hintStyle: TextStyle(
             fontSize: 13,
-            color: Theme.of(context).colorScheme.tertiary,
+            color: context.neutralColor(),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: const BorderRadius.all(Radius.circular(15)),
             borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.secondary,
+              color: context.accentColor(),
               width: 4,
             ),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: const BorderRadius.all(Radius.circular(6)),
             borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.tertiary,
+              color: context.neutralColor(),
               width: 2,
             ),
           ),
@@ -85,10 +86,10 @@ class _AlertDialogWidgetState extends State<AlertDialogWidget> {
               });
             }
           },
-          child: const Text(
+          child: Text(
             "Edit",
             style: TextStyle(
-              color: Colors.black,
+              color: context.onPrimaryColor(),
             ),
           ),
         ),

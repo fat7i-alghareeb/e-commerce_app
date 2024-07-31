@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../shared/cubits/cubit/user_info_cubit.dart';
 
@@ -32,16 +33,16 @@ class _ThemeSwitchState extends State<ThemeSwitch> {
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: Theme.of(context).colorScheme.tertiary,
+            color: context.neutralColor(),
           ),
         ),
         Switch(
           value: !lightTheme,
 
           activeColor: Colors.white,
-          inactiveThumbColor: Theme.of(context).colorScheme.secondary, //
+          inactiveThumbColor: context.accentColor(), //
           inactiveTrackColor: Colors.white,
-          activeTrackColor: Colors.black, //
+          activeTrackColor: context.onPrimaryColor(), //
           onChanged: (value) {
             setState(() {
               lightTheme = !value;

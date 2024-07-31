@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../../utils/router/router_paths.dart';
 import '../../../manger/categories cubit/categories_cubit.dart';
@@ -32,7 +33,7 @@ class _CategoriesPartState extends State<CategoriesPart> {
             const Text(
               "Categories",
               style: TextStyle(
-                // color: Theme.of(context).colorScheme.tertiary,
+                // color: context.neutralColor(),
                 fontSize: 30,
                 fontFamily: "caveat",
                 fontWeight: FontWeight.w900,
@@ -47,7 +48,7 @@ class _CategoriesPartState extends State<CategoriesPart> {
               child: Text(
                 "See All",
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.secondary,
+                  color: context.accentColor(),
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                   // fontStyle: FontStyle.italic,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../shared/widgets/app_icon.dart';
 import '../../../../../utils/assets.dart';
@@ -18,7 +19,7 @@ class QuantityWidget extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
-          color: Theme.of(context).colorScheme.tertiary,
+          color: context.neutralColor(),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,7 +42,7 @@ class QuantityWidget extends StatelessWidget {
                       width: 15,
                     ),
                     onPressed: () {},
-                    color: Theme.of(context).colorScheme.secondary,
+                    color: context.accentColor(),
                   ),
                 ),
                 const SizedBox(
@@ -66,7 +67,7 @@ class QuantityWidget extends StatelessWidget {
                       width: 15,
                     ),
                     onPressed: () {},
-                    color: Theme.of(context).colorScheme.secondary,
+                    color: context.accentColor(),
                   ),
                 )
               ],

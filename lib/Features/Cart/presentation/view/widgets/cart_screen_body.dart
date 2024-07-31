@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/shared/widgets/sliver_sized_box.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../shared/models/product.dart';
 import 'slidable.dart';
@@ -49,7 +50,7 @@ class CartScreenBody extends StatelessWidget {
                 "Remove All ",
                 style: TextStyle(
                   fontSize: 18,
-                  color: Theme.of(context).colorScheme.secondary,
+                  color: context.accentColor(),
                 ),
               ),
             ),

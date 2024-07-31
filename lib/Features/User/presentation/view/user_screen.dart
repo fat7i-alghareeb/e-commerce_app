@@ -1,5 +1,6 @@
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:store_app/utils/assets.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../shared/cubits/cubit/user_info_cubit.dart';
 import '../../../../shared/cubits/cubit/user_info_state.dart';
@@ -107,9 +108,9 @@ class InfoCardWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: Card(
         margin: EdgeInsets.zero,
-        color: Theme.of(context).colorScheme.tertiary,
+        color: context.neutralColor(),
         elevation: 10,
-        shadowColor: Theme.of(context).colorScheme.secondary.withOpacity(.05),
+        shadowColor: context.accentColor().withOpacity(.05),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: Row(
@@ -125,7 +126,7 @@ class InfoCardWidget extends StatelessWidget {
                 AssetsImages.arrow,
                 height: 20,
                 colorFilter: ColorFilter.mode(
-                  Theme.of(context).colorScheme.secondary,
+                  context.accentColor(),
                   BlendMode.srcIn,
                 ),
               )

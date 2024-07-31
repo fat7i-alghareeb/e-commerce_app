@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../shared/models/product.dart';
 import '../../../../Cart/presentation/manger/cubit/cart_product_cubit.dart';
@@ -45,7 +46,7 @@ class _AddToCartWidgetState extends State<AddToCartWidget>
   void didChangeDependencies() {
     super.didChangeDependencies();
     _colorAnimation = ColorTween(
-      begin: Theme.of(context).colorScheme.secondary,
+      begin: context.accentColor(),
       end: Colors.green,
     ).animate(_animationController);
     _animationController.addStatusListener((status) {
@@ -91,7 +92,7 @@ class _AddToCartWidgetState extends State<AddToCartWidget>
                               widget.fromHome ? "\$148" : "Add another one",
                               style: TextStyle(
                                 fontSize: 20,
-                                color: Theme.of(context).colorScheme.primary,
+                                color: context.primaryColor(),
                               ),
                             ),
                             const SizedBox(width: 8),
@@ -101,7 +102,7 @@ class _AddToCartWidgetState extends State<AddToCartWidget>
                                   : "Add another one",
                               style: TextStyle(
                                 fontSize: 20,
-                                color: Theme.of(context).colorScheme.primary,
+                                color: context.primaryColor(),
                               ),
                             ),
                           ],

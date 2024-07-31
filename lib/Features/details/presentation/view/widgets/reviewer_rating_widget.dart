@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 import '../../../../../shared/models/review.dart';
 import '../../../../../utils/assets.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -11,9 +12,9 @@ class ReviewerRatingWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.zero,
-      color: Theme.of(context).colorScheme.tertiary,
+      color: context.neutralColor(),
       elevation: 10,
-      shadowColor: Theme.of(context).colorScheme.secondary.withOpacity(.05),
+      shadowColor: context.accentColor().withOpacity(.05),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0),
         child: Padding(
@@ -64,15 +65,15 @@ class ReviewerRatingWidget extends StatelessWidget {
                     ratingWidget: RatingWidget(
                       full: Icon(
                         Icons.star_rounded,
-                        color: Theme.of(context).colorScheme.secondary,
+                        color: context.accentColor(),
                       ),
                       half: Icon(
                         Icons.star_half_rounded,
-                        color: Theme.of(context).colorScheme.secondary,
+                        color: context.accentColor(),
                       ),
                       empty: Icon(
                         Icons.star_border_rounded,
-                        color: Theme.of(context).colorScheme.secondary,
+                        color: context.accentColor(),
                       ),
                     ),
                     onRatingUpdate: (rating) {},

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../shared/cubits/cubit/user_info_cubit.dart';
 import 'edit_personal_info.dart';
@@ -43,7 +44,7 @@ class ShowBottomSheetButton extends StatelessWidget {
       child: Text(
         "Edit",
         style: TextStyle(
-          color: Theme.of(context).colorScheme.secondary,
+          color: context.accentColor(),
           fontWeight: FontWeight.bold,
         ),
       ),

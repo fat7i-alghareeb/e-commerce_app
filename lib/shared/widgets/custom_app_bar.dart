@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 import '../../utils/assets.dart';
 import '../../utils/router/router_paths.dart';
 import '../../Features/products_display_home/presentation/manger/products cubit/products_cubit.dart';
@@ -25,7 +26,7 @@ class CustomAppBar extends StatelessWidget {
       title: Text(
         title,
         style: TextStyle(
-          color: Theme.of(context).colorScheme.tertiary,
+          color: context.neutralColor(),
           fontSize: 30,
           fontStyle: FontStyle.italic,
         ),
@@ -42,7 +43,7 @@ class CustomAppBar extends StatelessWidget {
               },
               icon: Icon(
                 Icons.search,
-                color: Theme.of(context).colorScheme.tertiary,
+                color: context.neutralColor(),
                 size: 32,
               ),
             ),
@@ -56,7 +57,7 @@ class CustomAppBar extends StatelessWidget {
               icon: Image.asset(
                 AssetsImages.menu,
                 height: 32,
-                color: Theme.of(context).colorScheme.tertiary,
+                color: context.neutralColor(),
               ),
             )
           ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 import '../welcom page animations/animated_clipper.dart';
 import '../welcom page animations/animated_text.dart';
 
@@ -78,7 +79,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 -80 + MediaQuery.of(context).size.width * _iconAnimation.value,
             bottom: MediaQuery.of(context).size.height * .19,
             child: Card(
-              color: Theme.of(context).colorScheme.secondary,
+              color: context.accentColor(),
               child: IconButton(
                 onPressed: () {
                   widget.pageController.nextPage(
@@ -89,7 +90,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 },
                 icon: Icon(
                   Icons.arrow_forward_ios_rounded,
-                  color: Theme.of(context).colorScheme.primary,
+                  color: context.primaryColor(),
                   size: 32,
                 ),
               ),

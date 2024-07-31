@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../shared/widgets/cached_image.dart';
 
@@ -24,7 +25,7 @@ class ImagesSlideshow extends StatelessWidget {
                 const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
             elevation: 0.5,
             child: Container(
-              color: Theme.of(context).colorScheme.tertiary,
+              color: context.neutralColor(),
               child: Hero(
                 tag: index == 0 ? tag : index,
                 child: CachedImage(

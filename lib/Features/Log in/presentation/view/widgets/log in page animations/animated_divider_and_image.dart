@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../../utils/assets.dart';
 import '../log in page widgets/other_method_auth_widget.dart';
@@ -73,7 +74,7 @@ class AnimatedDividerAndImage extends StatelessWidget {
                     left: 15,
                     bottom: 13,
                     child: Card(
-                      color: Theme.of(context).colorScheme.secondary,
+                      color: context.accentColor(),
                       child: IconButton(
                         onPressed: () {
                           pageController.previousPage(
@@ -84,7 +85,7 @@ class AnimatedDividerAndImage extends StatelessWidget {
                         },
                         icon: Icon(
                           Icons.arrow_back_ios_new_rounded,
-                          color: Theme.of(context).colorScheme.primary,
+                          color: context.primaryColor(),
                           size: 32,
                         ),
                       ),

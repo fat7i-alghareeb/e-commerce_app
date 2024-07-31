@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 class AnimatedTextFormField extends StatelessWidget {
   final TextEditingController controller;
@@ -36,16 +37,14 @@ class AnimatedTextFormField extends StatelessWidget {
         child: TextField(
           controller: controller,
           obscureText: obscureText,
-          style: const TextStyle(
-            color: Colors.black,
+          style: TextStyle(
+            color: context.onPrimaryColor(),
           ),
-          cursorColor: Colors.black,
+          cursorColor: context.onPrimaryColor(),
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: isValid
-                    ? Theme.of(context).colorScheme.primary
-                    : Colors.red,
+                color: isValid ? context.primaryColor() : Colors.red,
               ),
             ),
             focusedBorder: OutlineInputBorder(

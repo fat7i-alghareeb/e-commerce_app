@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../utils/router/router_paths.dart';
 import '../models/product.dart';
@@ -23,8 +24,8 @@ class ProductCard extends StatelessWidget {
       child: Card(
         margin: const EdgeInsets.all(0),
         elevation: 2,
-        color: Theme.of(context).colorScheme.tertiary,
-        shadowColor: Theme.of(context).colorScheme.secondary.withOpacity(.3),
+        color: context.neutralColor(),
+        shadowColor: context.accentColor().withOpacity(.3),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

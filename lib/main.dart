@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:store_app/utils/router/router_paths.dart';
-
 import 'shared/cubits/cubit/user_info_cubit.dart';
 import 'shared/cubits/cubit/user_info_state.dart';
 import 'shared/models/product.dart';
@@ -46,7 +45,7 @@ class _MyAppState extends State<MyApp> {
         statusBarColor: Colors.transparent,
         systemNavigationBarColor: userSelectedTheme
             ? const Color(0xffffffff)
-            : const Color(0xff1b2026),
+            : const Color(0xFF1D182A),
       ),
     );
     return BlocListener<UserInfoCubit, UserInfoState>(

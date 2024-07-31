@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 import '../../../../../shared/models/product.dart';
 import '../../../../../shared/widgets/sliver_sized_box.dart';
 import 'home widgets/categories_part_widget.dart';
@@ -30,7 +31,7 @@ class HomeBody extends StatelessWidget {
               child: Text(
                 "New In",
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.secondary,
+                  color: context.accentColor(),
                   fontSize: 30,
                   fontFamily: "caveat",
                   fontWeight: FontWeight.w900,

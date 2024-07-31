@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../../utils/router/router_paths.dart';
 
@@ -30,7 +31,7 @@ class CategoriesListView extends StatelessWidget {
                 height: 60,
                 width: 60,
                 child: CircleAvatar(
-                  backgroundColor: Theme.of(context).colorScheme.tertiary,
+                  backgroundColor: context.neutralColor(),
                   child: Image.asset(
                     categories[1][index],
                     height: 35,
