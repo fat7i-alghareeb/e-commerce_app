@@ -40,6 +40,10 @@ class QuantityWidget extends StatelessWidget {
                     widget: SvgPicture.asset(
                       AssetsImages.plus,
                       width: 15,
+                      colorFilter: ColorFilter.mode(
+                        context.primaryColor(),
+                        BlendMode.srcIn,
+                      ),
                     ),
                     onPressed: () {},
                     color: context.accentColor(),
@@ -65,6 +69,10 @@ class QuantityWidget extends StatelessWidget {
                     widget: SvgPicture.asset(
                       AssetsImages.minus,
                       width: 15,
+                      colorFilter: ColorFilter.mode(
+                        context.primaryColor(),
+                        BlendMode.srcIn,
+                      ),
                     ),
                     onPressed: () {},
                     color: context.accentColor(),

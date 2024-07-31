@@ -37,6 +37,10 @@ class CustomTextField extends StatelessWidget {
               height: 20,
               child: SvgPicture.asset(
                 AssetsImages.search,
+                colorFilter: ColorFilter.mode(
+                  context.onPrimaryColor(),
+                  BlendMode.srcIn,
+                ),
               ),
             ),
           ),

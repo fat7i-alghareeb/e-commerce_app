@@ -52,74 +52,52 @@ class HomeUpperPart extends StatelessWidget {
           const SizedBox(
             height: 30,
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, KRouter.searchScreen,
-                  arguments: BlocProvider.of<ProductsCubit>(context).products);
-              HapticFeedback.heavyImpact();
-            },
-            child: Container(
-              height: 45,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(32),
-                color: context.neutralColor(),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16),
-                child: Row(
-                  children: [
-                    SvgPicture.asset(AssetsImages.search),
-                    const SizedBox(width: 10),
-                    const Text(
-                      "Search",
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          )
+          const HomeSearchWidget()
         ],
       ),
     );
   }
 }
 
+class HomeSearchWidget extends StatelessWidget {
+  const HomeSearchWidget({
+    super.key,
+  });
 
-
-//  Stack(
-//       children: [
-//         const SwiperWidget(),
-//         Padding(
-//           padding: const EdgeInsets.fromLTRB(0, 30, 10, 0),
-//           child: Row(
-//             mainAxisAlignment: MainAxisAlignment.end,
-//             children: [
-//               AppIcon(
-//                 onPressed: () {
-//                   Navigator.pushNamed(context, KRouter.searchScreen,
-//                       arguments:
-//                           BlocProvider.of<ProductsCubit>(context).products);
-//                   HapticFeedback.heavyImpact();
-//                 },
-//                 widget: const Icon(
-//                   Icons.search,
-//                   color: Colors.white,
-//                   size: 32,
-//                 ),
-//               ),
-//               AppIcon(
-//                 onPressed: () {
-//                   Scaffold.of(context).openEndDrawer();
-//                 },
-//                 widget: Image.asset(
-//                   AssetsImages.menu,
-//                   height: 32,
-//                   color: Colors.white,
-//                 ),
-//               ),
-//             ],
-//           ),
-//         )
-//       ],
-//     );
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, KRouter.searchScreen,
+            arguments: BlocProvider.of<ProductsCubit>(context).products);
+        HapticFeedback.heavyImpact();
+      },
+      child: Container(
+        height: 45,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(32),
+          color: context.neutralColor(),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 16),
+          child: Row(
+            children: [
+              SvgPicture.asset(
+                AssetsImages.search,
+                colorFilter: ColorFilter.mode(
+                  context.onPrimaryColor(),
+                  BlendMode.srcIn,
+                ),
+              ),
+              const SizedBox(width: 10),
+              const Text(
+                "Search",
+                style: TextStyle(fontWeight: FontWeight.w600),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

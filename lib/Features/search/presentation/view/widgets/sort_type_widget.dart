@@ -18,7 +18,7 @@ class SortTypeWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(
           20,
         ),
-        color: isSelected ? context.accentColor() : Colors.grey[200],
+        color: isSelected ? context.accentColor() : context.neutralColor(),
       ),
       child: Center(
         child: Text(

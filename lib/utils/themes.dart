@@ -15,6 +15,7 @@ ThemeData lightMode = ThemeData(
   brightness: Brightness.light,
   fontFamily: "oswald",
   primaryColor: lightMainColor,
+  drawerTheme: const DrawerThemeData(backgroundColor: lightMainColor),
   scaffoldBackgroundColor: lightMainColor,
   appBarTheme: const AppBarTheme(
     backgroundColor: lightMainColor,
@@ -30,6 +31,7 @@ ThemeData lightMode = ThemeData(
 ThemeData darkMode = ThemeData(
   brightness: Brightness.dark,
   fontFamily: "oswald",
+  drawerTheme: const DrawerThemeData(backgroundColor: darkMainColor),
   appBarTheme: const AppBarTheme(
     backgroundColor: darkMainColor,
   ),

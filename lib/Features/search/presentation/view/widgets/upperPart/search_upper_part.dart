@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../../shared/widgets/app_icon.dart';
 import '../../../../../../utils/assets.dart';
@@ -25,6 +26,10 @@ class _SearchUpperPartState extends State<SearchUpperPart> {
             widget: SvgPicture.asset(
               AssetsImages.backArrow,
               height: 20,
+              colorFilter: ColorFilter.mode(
+                context.onPrimaryColor(),
+                BlendMode.srcIn,
+              ),
             ),
             onPressed: () {
               Navigator.pop(context);

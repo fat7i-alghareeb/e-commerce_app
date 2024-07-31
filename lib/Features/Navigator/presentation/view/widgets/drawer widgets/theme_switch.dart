@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/utils/helper_extensions.dart';
 
-import '../../../../../shared/cubits/cubit/user_info_cubit.dart';
+import '../../../../../../shared/cubits/cubit/user_info_cubit.dart';
 
 class ThemeSwitch extends StatefulWidget {
   const ThemeSwitch({
     super.key,
-    required this.lightTheme,
   });
-  final bool lightTheme;
   @override
   State<ThemeSwitch> createState() => _ThemeSwitchState();
 }
@@ -19,7 +17,7 @@ class _ThemeSwitchState extends State<ThemeSwitch> {
 
   @override
   void initState() {
-    lightTheme = widget.lightTheme;
+    lightTheme = BlocProvider.of<UserInfoCubit>(context).userTheme;
     super.initState();
   }
 
@@ -33,21 +31,23 @@ class _ThemeSwitchState extends State<ThemeSwitch> {
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
-            color: context.neutralColor(),
+            color: context.onPrimaryColor(),
           ),
         ),
         Switch(
           value: !lightTheme,
 
-          activeColor: Colors.white,
+          activeColor: context.onPrimaryColor(),
           inactiveThumbColor: context.accentColor(), //
-          inactiveTrackColor: Colors.white,
-          activeTrackColor: context.onPrimaryColor(), //
+          inactiveTrackColor: context.primaryColor(),
+          activeTrackColor: context.accentColor(), //
           onChanged: (value) {
-            setState(() {
-              lightTheme = !value;
-              BlocProvider.of<UserInfoCubit>(context).changeTheme();
-            });
+            setState(
+              () {
+                lightTheme = !value;
+                BlocProvider.of<UserInfoCubit>(context).changeTheme();
+              },
+            );
           },
         ),
       ],

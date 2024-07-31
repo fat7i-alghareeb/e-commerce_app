@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:store_app/utils/helper_extensions.dart';
 
 import '../../../../../shared/models/product.dart';
 import '../../../../../shared/widgets/app_icon.dart';
@@ -34,6 +35,10 @@ class CategoryProductsBody extends StatelessWidget {
                   widget: SvgPicture.asset(
                     AssetsImages.backArrow,
                     width: 10,
+                    colorFilter: ColorFilter.mode(
+                      context.onPrimaryColor(),
+                      BlendMode.srcIn,
+                    ),
                   ),
                   onPressed: () {
                     Navigator.pop(context);
