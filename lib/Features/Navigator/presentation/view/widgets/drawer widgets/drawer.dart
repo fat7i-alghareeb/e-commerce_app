@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/Features/Navigator/presentation/view/widgets/drawer%20widgets/theme_switch.dart';
 
+import '../../../../../User/presentation/view/widgets/custom_divider.dart';
+
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({
     super.key,
@@ -26,6 +28,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             children: [
+              CustomDivider(dividerName: "Settings"),
               ThemeSwitch(),
             ],
           ),

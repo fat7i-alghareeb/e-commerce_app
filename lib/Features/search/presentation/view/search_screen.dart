@@ -7,7 +7,7 @@ import '../../../../utils/service_locator.dart';
 import '../cubit/search_cubit.dart';
 import 'widgets/number_of_results.dart';
 import 'widgets/upperPart/search_upper_part.dart';
-import 'widgets/sort_by_widget.dart';
+import '../../../../shared/widgets/sort_by_widget.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});

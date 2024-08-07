@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../cubit/search_cubit.dart';
-import 'sort_type_widget.dart';
+import '../../Features/search/presentation/cubit/search_cubit.dart';
+import '../../Features/search/presentation/view/widgets/sort_type_widget.dart';
 
 class SortByWidget extends StatefulWidget {
   const SortByWidget({
