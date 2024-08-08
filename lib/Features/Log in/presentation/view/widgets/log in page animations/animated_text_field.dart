@@ -24,8 +24,11 @@ class AnimatedTextFormField extends StatelessWidget {
     return AnimatedBuilder(
       animation: animation,
       builder: (context, child) {
-        return Transform.translate(
-          offset: Offset(0, 300 * (1 - animation.value)),
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(0, 4),
+            end: Offset.zero,
+          ).animate(animation),
           child: Opacity(
             opacity: animation.value,
             child: child,

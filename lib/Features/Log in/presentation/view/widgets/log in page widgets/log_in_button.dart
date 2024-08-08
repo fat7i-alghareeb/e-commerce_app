@@ -12,8 +12,11 @@ class LogInButton extends StatelessWidget {
     return AnimatedBuilder(
       animation: animation,
       builder: (context, child) {
-        return Transform.translate(
-          offset: Offset(400 * (1 - animation.value), 0),
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(4, 0),
+            end: Offset.zero,
+          ).animate(animation),
           child: Opacity(
             opacity: animation.value,
             child: child,
