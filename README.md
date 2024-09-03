@@ -5,7 +5,6 @@ The E-commerce App is a fully functional mobile application designed to provide 
 **For full details please check my LinkedIn profile**: [My Profile](https://www.linkedin.com/in/fathi-alghareeb/)
 
 ## Features
-
 - **Product Search and Filtering:** Easily search for products by name or category and apply filters to narrow down the results.
 - **Product Reviews:** View user-generated reviews and ratings for products to make informed purchasing decisions.
 - **Category-based Listings:** Browse products by specific categories, making it easier to find what you're looking for.
@@ -21,6 +20,7 @@ The E-commerce App is a fully functional mobile application designed to provide 
 
 ![Picsart_24-08-09_11-35-53-439](https://github.com/user-attachments/assets/d27b9108-59e7-4865-82d8-72543018dc81)
 
+
 ### **Light Theme**
 
 
@@ -34,14 +34,13 @@ The E-commerce App is a fully functional mobile application designed to provide 
 
 
 ## Technology
-
 1. **Bloc**  
    A state management library that simplifies the control of the application's state, ensuring a more predictable and testable environment.
 2. **Retrofit with Dio**  
    A combination of powerful HTTP clients used to handle complex API requests, including pagination and data serialization, ensuring smooth data processing.
 3. **MVVM Architecture**  
    The Model-View-ViewModel (MVVM) pattern helps in separating the user interface from the business logic, making the codebase more modular and maintainable.
-4- **Json Serializable***
+4. **Json Serializable**
    Automatically generates code to convert Dart objects to and from JSON format, making it easier to work with APIs and ensuring type-safe JSON serialization and deserialization.
-5- **Get It**
+5. **Get It**
    Is a simple and lightweight dependency injection package for Dart and Flutter. It allows you to manage the creation and lifecycle of objects, making it easy to retrieve instances of classes (like services or repositories) from anywhere in your app, promoting better code organization and testability.
