@@ -10,9 +10,14 @@ import 'shared/models/user.dart';
 import 'utils/router/app_router.dart';
 import 'utils/service_locator.dart';
 import 'utils/themes.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await Hive.initFlutter();
   Hive.registerAdapter(ProductAdapter());
   Hive.registerAdapter(UserAdapter());
