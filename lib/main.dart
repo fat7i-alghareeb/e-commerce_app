@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Store',
-        initialRoute: Hive.box<User>("user_box").isEmpty
+        initialRoute: Hive.box<User>("user_box").isNotEmpty
             ? KRouter.logInPage
             : KRouter.mainNavigator,
         onGenerateRoute: _appRouter.generateRoute,

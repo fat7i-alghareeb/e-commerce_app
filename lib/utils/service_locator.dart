@@ -1,8 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:store_app/Features/authentication/data/domain/repo/auth_repo.dart';
 import 'package:store_app/Features/search/data/repo/search_repo.dart';
+import 'package:store_app/utils/services/firebase_auth_services.dart';
 import '../Features/Cart/data/repo/cart_products_repo_impl.dart';
-import '../Features/products_display_home/data/repo/products_repo_impl.dart';
+import '../Features/home/data/domain/repo/products_repo_impl.dart';
 import 'services/products_services.dart';
 
 final getIt = GetIt.instance;
@@ -14,8 +16,20 @@ void setupServiceLocator() {
       apiService: getIt.get<ApiService>(),
     ),
   );
-  getIt.registerSingleton<CartProductsRepoImpl>(CartProductsRepoImpl());
-  getIt.registerSingleton<SearchRepo>(SearchRepo(getIt.get<ApiService>()));
+  getIt.registerSingleton<CartProductsRepoImpl>(
+    CartProductsRepoImpl(),
+  );
+  getIt.registerSingleton<SearchRepo>(
+    SearchRepo(
+      getIt.get<ApiService>(),
+    ),
+  );
+  getIt.registerSingleton<FirebaseAuthServices>(FirebaseAuthServices());
+  getIt.registerSingleton<AuthRepo>(
+    AuthRepo(
+      firebaseAuthServices: getIt.get<FirebaseAuthServices>(),
+    ),
+  );
 }
 
 Dio createAndSetupDio() {
