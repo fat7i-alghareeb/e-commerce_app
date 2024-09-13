@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:store_app/Features/authentication/data/domain/entity/user_entity.dart';
 import 'package:store_app/Features/authentication/data/models/user_model.dart';
@@ -16,6 +18,20 @@ class AuthRepo {
           emailAddress: email, password: password);
       return right(UserModel.fromFirebase(user));
     } catch (e) {
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
+    }
+  }
+
+  Future<Either<Failure, UserEntity>> signInWithGoogle() async {
+    try {
+      final user = await firebaseAuthServices.signInWithGoogle();
+      return right(UserModel.fromFirebase(user));
+    } catch (e) {
+      log(e.toString());
       return left(
         ServerFailure(
           e.toString(),

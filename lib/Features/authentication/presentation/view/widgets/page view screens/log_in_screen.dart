@@ -3,13 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/Features/authentication/presentation/manger/cubit/sign_in_cubit.dart';
 import 'package:store_app/Features/authentication/presentation/manger/cubit/sign_in_state.dart';
-import 'package:store_app/utils/helper_extensions.dart';
-import '../../../../../../shared/cubits/cubit/user_info_cubit.dart';
 import '../../../../../../utils/assets.dart';
-import '../../../../../../utils/router/router_paths.dart';
 import '../log in page animations/animated_text_field.dart';
+import '../log in page widgets/animated_bottom_part.dart';
+import '../log in page widgets/animated_divider.dart';
 import '../log in page widgets/log_in_button.dart';
-import '../log in page widgets/other_method_auth_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.pageController});
@@ -122,56 +120,44 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
             ///////////////////////////////////////////////////////////////////////////////////////////
             const SizedBox(height: 35),
             ///////////////////////////////////////////////////////////////////////////////////////////
-            BlocBuilder<SignInCubit, SignInState>(
-              builder: (context, state) {
-                if (state is SignInInitial) {
-                  return LogInButton(
-                    onTap: () async {
-                      if (_validateFields()) {
-                        BlocProvider.of<SignInCubit>(context)
-                            .createUserWithEmailAndPassword(
-                          email: gmailController.text,
-                          password: passwordController.text,
-                        );
-                        // final mainScreen=Navigator.pushReplacementNamed(
-                        //         context,
-                        //         KRouter.mainNavigator,
-                        //       );
-                        // await BlocProvider.of<UserInfoCubit>(context)
-                        //     .saveUser(
-                        //       userName: usernameController.text,
-                        //       gmail: gmailController.text,
-                        //       password: passwordController.text,
-                        //     )
-                        //     .then(
-                        //       (_) => mainScreen
-                        //     );
 
-                        HapticFeedback.heavyImpact();
-                      }
-                    },
-                    animation: _animation,
+            LogInButton(
+              onTap: () async {
+                if (_validateFields()) {
+                  BlocProvider.of<SignInCubit>(context)
+                      .createUserWithEmailAndPassword(
+                    email: gmailController.text,
+                    password: passwordController.text,
                   );
-                } else if (state is SighInLoading) {
-                  return const CircularProgressIndicator(
-                    color: Colors.amber,
-                  );
-                } else if (state is SignInSuccess) {
-                  return Text(
-                      "${state.userEntity.email}     +     ${state.userEntity.uId}");
-                } else if (state is SignInFailure) {
-                  return Text(state.message);
-                } else {
-                  return const SizedBox.shrink();
+                  // final mainScreen=Navigator.pushReplacementNamed(
+                  //         context,
+                  //         KRouter.mainNavigator,
+                  //       );
+                  // await BlocProvider.of<UserInfoCubit>(context)
+                  //     .saveUser(
+                  //       userName: usernameController.text,
+                  //       gmail: gmailController.text,
+                  //       password: passwordController.text,
+                  //     )
+                  //     .then(
+                  //       (_) => mainScreen
+                  //     );
+
+                  HapticFeedback.heavyImpact();
                 }
               },
+              animation: _animation,
             ),
+
             ///////////////////////////////////////////////////////////////////////////////////////////
             const SizedBox(height: 40),
             ///////////////////////////////////////////////////////////////////////////////////////////
             AnimatedDivider(colorAnimation: _colorAnimation),
             const SizedBox(height: 50),
-            AnimatedBottomPart(downAnimation: _downAnimation, widget: widget),
+            AnimatedBottomPart(
+              downAnimation: _downAnimation,
+              pageController: widget.pageController,
+            ),
             //////////////////////////////////////////////////////////////////////////////////////////////
             const SizedBox(height: 50),
           ],
@@ -212,108 +198,5 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
       _downAnimationController.forward();
       _colorAnimationController.forward();
     });
-  }
-}
-
-class AnimatedBottomPart extends StatelessWidget {
-  const AnimatedBottomPart({
-    super.key,
-    required Animation<double> downAnimation,
-    required this.widget,
-  }) : _downAnimation = downAnimation;
-
-  final Animation<double> _downAnimation;
-  final LoginPage widget;
-
-  @override
-  Widget build(BuildContext context) {
-    return SlideTransition(
-      position: Tween<Offset>(
-        begin: const Offset(0, 3),
-        end: Offset.zero,
-      ).animate(_downAnimation),
-      child: AnimatedBuilder(
-        animation: _downAnimation,
-        builder: (context, child) => Opacity(
-          opacity: _downAnimation.value,
-          child: Stack(
-            children: [
-              const Center(
-                child: OtherMethodAuthWidget(
-                  imagePath: AssetsImages.google,
-                ),
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 18, horizontal: 20),
-                child: SizedBox(
-                  height: 50,
-                  child: Card(
-                    color: context.accentColor(),
-                    margin: EdgeInsets.zero,
-                    child: IconButton(
-                      onPressed: () {
-                        widget.pageController.previousPage(
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.easeIn,
-                        );
-                        HapticFeedback.heavyImpact();
-                      },
-                      icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: context.primaryColor(),
-                        size: 32,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class AnimatedDivider extends StatelessWidget {
-  const AnimatedDivider({
-    super.key,
-    required Animation<int> colorAnimation,
-  }) : _colorAnimation = colorAnimation;
-
-  final Animation<int> _colorAnimation;
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _colorAnimation,
-      builder: (context, child) => Row(
-        children: [
-          Expanded(
-            child: Divider(
-              thickness: 0.5,
-              color: Color.fromRGBO(189, 189, 189, _colorAnimation.value / 255),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Opacity(
-              opacity: _colorAnimation.value / 255,
-              child: Text(
-                'Or continue with',
-                style: TextStyle(color: Colors.grey[700]),
-              ),
-            ),
-          ),
-          Expanded(
-            child: Divider(
-              thickness: 0.5,
-              color: Color.fromRGBO(189, 189, 189, _colorAnimation.value / 255),
-            ),
-          ),
-        ],
-      ),
-    );
   }
 }
