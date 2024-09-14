@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/Features/authentication/presentation/manger/cubit/sign_in_cubit.dart';
 import 'package:store_app/Features/authentication/presentation/manger/cubit/sign_in_state.dart';
+import 'package:store_app/utils/functions/sign_in_indicator.dart';
 import '../../../../../../utils/assets.dart';
 import '../log in page animations/animated_text_field.dart';
 import '../log in page widgets/animated_bottom_part.dart';
@@ -68,101 +69,120 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 30),
-            SlideTransition(
-              position: Tween<Offset>(
-                begin: const Offset(0, -1),
-                end: Offset.zero,
-              ).animate(_animation),
-              child: Image.asset(
-                AssetsImages.storeLogo,
-                height: 150,
+    return BlocListener<SignInCubit, SignInState>(
+      listener: (context, state) {
+        if (state is SignInLoading) {
+          signInLoadingIndicator(context: context, isLoading: true);
+        } else if (state is SignInFailure) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              duration: const Duration(seconds: 2),
+              content: Text(state.message),
+              backgroundColor: Colors.red[700],
+              padding: const EdgeInsets.all(25),
+            ),
+          );
+          signInLoadingIndicator(context: context, isLoading: false);
+        } else {
+          signInLoadingIndicator(context: context, isLoading: false);
+        }
+      },
+      child: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 30),
+              SlideTransition(
+                position: Tween<Offset>(
+                  begin: const Offset(0, -1),
+                  end: Offset.zero,
+                ).animate(_animation),
+                child: Image.asset(
+                  AssetsImages.storeLogo,
+                  height: 150,
+                ),
               ),
-            ),
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            const SizedBox(height: 50),
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            AnimatedTextFormField(
-              controller: usernameController,
-              hintText: 'Username',
-              obscureText: false,
-              animation: _animation,
-              isValid: _isUsernameValid,
-              errorMessage: "Please enter a value",
-            ),
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            const SizedBox(height: 10),
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            AnimatedTextFormField(
-              controller: gmailController,
-              hintText: 'Gmail',
-              obscureText: false,
-              animation: _animation,
-              isValid: _isGmailValid,
-              errorMessage: "Please enter a value or put a valid Gmail",
-            ),
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            const SizedBox(height: 10),
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            AnimatedTextFormField(
-              controller: passwordController,
-              hintText: 'Password',
-              obscureText: true,
-              animation: _animation,
-              isValid: _isPasswordValid,
-              errorMessage: "Please enter a value",
-            ),
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            const SizedBox(height: 35),
-            ///////////////////////////////////////////////////////////////////////////////////////////
+              ///////////////////////////////////////////////////////////////////////////////////////////
+              const SizedBox(height: 50),
+              ///////////////////////////////////////////////////////////////////////////////////////////
+              AnimatedTextFormField(
+                controller: usernameController,
+                hintText: 'Username',
+                obscureText: false,
+                animation: _animation,
+                isValid: _isUsernameValid,
+                errorMessage: "Please enter a value",
+              ),
+              ///////////////////////////////////////////////////////////////////////////////////////////
+              const SizedBox(height: 10),
+              ///////////////////////////////////////////////////////////////////////////////////////////
+              AnimatedTextFormField(
+                controller: gmailController,
+                hintText: 'Gmail',
+                obscureText: false,
+                animation: _animation,
+                isValid: _isGmailValid,
+                errorMessage: "Please enter a value or put a valid Gmail",
+              ),
+              ///////////////////////////////////////////////////////////////////////////////////////////
+              const SizedBox(height: 10),
+              ///////////////////////////////////////////////////////////////////////////////////////////
+              AnimatedTextFormField(
+                controller: passwordController,
+                hintText: 'Password',
+                obscureText: true,
+                animation: _animation,
+                isValid: _isPasswordValid,
+                errorMessage: "Please enter a value",
+              ),
+              ///////////////////////////////////////////////////////////////////////////////////////////
+              const SizedBox(height: 35),
+              ///////////////////////////////////////////////////////////////////////////////////////////
 
-            LogInButton(
-              onTap: () async {
-                if (_validateFields()) {
+              LogInButton(
+                onTap: () async {
+                  if (_validateFields()) {
                     FocusManager.instance.primaryFocus?.unfocus();
-                  BlocProvider.of<SignInCubit>(context)
-                      .createUserWithEmailAndPassword(
-                    email: gmailController.text,
-                    password: passwordController.text,
-userName: usernameController.text,
-                  );
-                  // final mainScreen=Navigator.pushReplacementNamed(
-                  //         context,
-                  //         KRouter.mainNavigator,
-                  //       );
-                  // await BlocProvider.of<UserInfoCubit>(context)
-                  //     .saveUser(
-                  //       userName: usernameController.text,
-                  //       gmail: gmailController.text,
-                  //       password: passwordController.text,
-                  //     )
-                  //     .then(
-                  //       (_) => mainScreen
-                  //     );
+                    BlocProvider.of<SignInCubit>(context)
+                        .createUserWithEmailAndPassword(
+                      email: gmailController.text,
+                      password: passwordController.text,
+                      userName: usernameController.text,
+                    );
+                    // final mainScreen=Navigator.pushReplacementNamed(
+                    //         context,
+                    //         KRouter.mainNavigator,
+                    //       );
+                    // await BlocProvider.of<UserInfoCubit>(context)
+                    //     .saveUser(
+                    //       userName: usernameController.text,
+                    //       gmail: gmailController.text,
+                    //       password: passwordController.text,
+                    //     )
+                    //     .then(
+                    //       (_) => mainScreen
+                    //     );
 
-                  HapticFeedback.heavyImpact();
-                }
-              },
-              animation: _animation,
-            ),
+                    HapticFeedback.heavyImpact();
+                  }
+                },
+                animation: _animation,
+              ),
 
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            const SizedBox(height: 40),
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            AnimatedDivider(colorAnimation: _colorAnimation),
-            const SizedBox(height: 50),
-            AnimatedBottomPart(
-              downAnimation: _downAnimation,
-              pageController: widget.pageController,
-            ),
-            //////////////////////////////////////////////////////////////////////////////////////////////
-            const SizedBox(height: 50),
-          ],
+              ///////////////////////////////////////////////////////////////////////////////////////////
+              const SizedBox(height: 40),
+              ///////////////////////////////////////////////////////////////////////////////////////////
+              AnimatedDivider(colorAnimation: _colorAnimation),
+              const SizedBox(height: 50),
+              AnimatedBottomPart(
+                downAnimation: _downAnimation,
+                pageController: widget.pageController,
+              ),
+              //////////////////////////////////////////////////////////////////////////////////////////////
+              const SizedBox(height: 50),
+            ],
+          ),
         ),
       ),
     );
