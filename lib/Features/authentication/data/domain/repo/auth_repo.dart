@@ -11,11 +11,17 @@ class AuthRepo {
 
   AuthRepo({required this.firebaseAuthServices});
 
-  Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(
-      {required String email, required String password}) async {
+  Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword({
+    required String email,
+    required String password,
+    required String userName,
+  }) async {
     try {
       final user = await firebaseAuthServices.createUserWithEmailAndPassword(
-          emailAddress: email, password: password);
+        emailAddress: email,
+        password: password,
+        userName: userName,
+      );
       return right(UserModel.fromFirebase(user));
     } catch (e) {
       return left(

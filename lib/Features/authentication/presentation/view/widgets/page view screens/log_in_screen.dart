@@ -124,10 +124,12 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
             LogInButton(
               onTap: () async {
                 if (_validateFields()) {
+                    FocusManager.instance.primaryFocus?.unfocus();
                   BlocProvider.of<SignInCubit>(context)
                       .createUserWithEmailAndPassword(
                     email: gmailController.text,
                     password: passwordController.text,
+userName: usernameController.text,
                   );
                   // final mainScreen=Navigator.pushReplacementNamed(
                   //         context,

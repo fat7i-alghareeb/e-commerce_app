@@ -8,8 +8,8 @@ class UserModel extends UserEntity {
 
   factory UserModel.fromFirebase(User user) {
     return UserModel(
-        userName: user.displayName ?? "null",
-        email: user.email ?? "noEmail",
+        userName: user.displayName ?? "Null",
+        email: user.email ?? "Null",
         uId: user.uid);
   }
 }
