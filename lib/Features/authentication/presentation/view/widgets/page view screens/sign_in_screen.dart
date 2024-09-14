@@ -6,9 +6,9 @@ import 'package:store_app/Features/authentication/presentation/manger/cubit/sign
 import 'package:store_app/utils/functions/sign_in_indicator.dart';
 import '../../../../../../utils/assets.dart';
 import '../log in page animations/animated_text_field.dart';
-import '../log in page widgets/animated_bottom_part.dart';
-import '../log in page widgets/animated_divider.dart';
-import '../log in page widgets/auth_button.dart';
+import '../auth pages widgets/animated_bottom_part.dart';
+import '../auth pages widgets/animated_divider.dart';
+import '../auth pages widgets/auth_button.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key, required this.pageController});
