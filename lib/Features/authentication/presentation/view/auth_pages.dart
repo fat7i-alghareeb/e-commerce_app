@@ -1,4 +1,4 @@
-import 'widgets/page view screens/log_in_screen.dart';
+import 'widgets/page view screens/sign_in_screen.dart';
 import 'widgets/page view screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +29,7 @@ class _MainNavigatorState extends State<AuthPages> {
       WelcomeScreen(
         pageController: pageController,
       ),
-      LoginPage(
+      SignInPage(
         pageController: pageController,
       ),
     ];

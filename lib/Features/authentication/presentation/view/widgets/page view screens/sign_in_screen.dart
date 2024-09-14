@@ -8,16 +8,16 @@ import '../../../../../../utils/assets.dart';
 import '../log in page animations/animated_text_field.dart';
 import '../log in page widgets/animated_bottom_part.dart';
 import '../log in page widgets/animated_divider.dart';
-import '../log in page widgets/log_in_button.dart';
+import '../log in page widgets/auth_button.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key, required this.pageController});
+class SignInPage extends StatefulWidget {
+  const SignInPage({super.key, required this.pageController});
   final PageController pageController;
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<SignInPage> createState() => _SignInPageState();
 }
 
-class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
+class _SignInPageState extends State<SignInPage> with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
   late AnimationController _downAnimationController;
@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
               const SizedBox(height: 35),
               ///////////////////////////////////////////////////////////////////////////////////////////
 
-              LogInButton(
+              AuthButton(
                 onTap: () async {
                   if (_validateFields()) {
                     FocusManager.instance.primaryFocus?.unfocus();

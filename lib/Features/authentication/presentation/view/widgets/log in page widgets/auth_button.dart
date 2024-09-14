@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/utils/helper_extensions.dart';
 
-class LogInButton extends StatelessWidget {
+class AuthButton extends StatelessWidget {
   final Function()? onTap;
   final Animation<double> animation;
 
-  const LogInButton({super.key, required this.onTap, required this.animation});
+  const AuthButton({super.key, required this.onTap, required this.animation});
 
   @override
   Widget build(BuildContext context) {
