@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/foundation.dart' show immutable;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../data/domain/entity/user_entity.dart';
@@ -11,7 +13,6 @@ class LogInCubit extends Cubit<LogInState> {
   Future<void> logInWithEmailAndPassword({
     required String email,
     required String password,
-    required String userName,
   }) async {
     emit(LogInLoading());
     final results = await authRepo.logInWithEmailAndPassword(
@@ -23,6 +24,7 @@ class LogInCubit extends Cubit<LogInState> {
         emit(LogInFailure(message: failure.message));
       },
       (user) {
+        log(user.userName);
         emit(LogInSuccess(userEntity: user));
       },
     );
@@ -36,6 +38,8 @@ class LogInCubit extends Cubit<LogInState> {
         emit(LogInFailure(message: failure.message));
       },
       (user) {
+        log(user.userName);
+
         emit(LogInSuccess(userEntity: user));
       },
     );

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/Features/authentication/presentation/manger/cubit/log_in_cubit.dart';
 import 'package:store_app/utils/helper_extensions.dart';
-
 import '../../../../../../utils/functions/is_email_valid.dart';
 import 'animated_text_field.dart';
 import 'auth_button.dart';
@@ -91,6 +92,11 @@ class _LogInMiddlePartState extends State<LogInMiddlePart> {
         AuthButton(
           onTap: () async {
             if (_validateFields()) {
+              FocusManager.instance.primaryFocus?.unfocus();
+              context.read<LogInCubit>().logInWithEmailAndPassword(
+                    email: gmailController.text,
+                    password: passwordController.text,
+                  );
               HapticFeedback.heavyImpact();
             }
           },
