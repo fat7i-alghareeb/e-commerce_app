@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/Features/authentication/data/domain/repo/auth_repo.dart';
-import 'package:store_app/Features/authentication/presentation/manger/cubit/sign_in_cubit.dart';
+
 import '../../Features/home/presentation/view/categories_list_screen.dart';
 import '../../Features/Cart/data/repo/cart_products_repo_impl.dart';
 import '../../Features/Cart/presentation/manger/cubit/cart_product_cubit.dart';
@@ -20,15 +19,16 @@ import 'router_paths.dart';
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case KRouter.logInPage:
+      case KRouter.authPage:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider(
-            create: (context) => SignInCubit(
-              getIt.get<AuthRepo>(),
-            ),
-            child: const AuthPages(),
-          ),
+          builder: (_) {
+            final int? initialPage = settings.arguments as int?;
+            return AuthPages(
+              initialPage: initialPage ?? 0,
+            );
+          },
         );
+
       case KRouter.mainNavigator:
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(

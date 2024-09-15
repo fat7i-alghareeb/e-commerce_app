@@ -52,7 +52,7 @@ class AnimatedTextFormField extends StatelessWidget {
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: isValid ? Colors.grey.shade400 : Colors.red,
+                color: isValid ? Colors.grey : Colors.red,
               ),
             ),
             errorBorder: const OutlineInputBorder(
@@ -61,7 +61,7 @@ class AnimatedTextFormField extends StatelessWidget {
               ),
             ),
             filled: true,
-            fillColor: isValid ? Colors.grey[200] : Colors.grey.shade100,
+            fillColor: context.neutralColor(),
             hintText: hintText,
             hintStyle: TextStyle(
               color: isValid ? Colors.grey[500] : Colors.red,

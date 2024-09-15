@@ -4,8 +4,13 @@ import 'package:store_app/utils/helper_extensions.dart';
 class AuthButton extends StatelessWidget {
   final Function()? onTap;
   final Animation<double> animation;
-
-  const AuthButton({super.key, required this.onTap, required this.animation});
+  final String buttonName;
+  const AuthButton({
+    super.key,
+    required this.onTap,
+    required this.animation,
+    required this.buttonName,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +39,7 @@ class AuthButton extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              "Log in",
+              buttonName,
               style: TextStyle(
                 color: context.primaryColor(),
                 fontWeight: FontWeight.bold,

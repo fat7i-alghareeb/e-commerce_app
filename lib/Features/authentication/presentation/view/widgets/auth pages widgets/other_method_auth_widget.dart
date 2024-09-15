@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/Features/authentication/presentation/manger/cubit/sign_in_cubit.dart';
+import 'package:store_app/Features/authentication/presentation/manger/signIn/sign_in_cubit.dart';
 
 class OtherMethodAuthWidget extends StatelessWidget {
   final String imagePath;
