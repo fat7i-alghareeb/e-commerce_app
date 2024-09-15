@@ -1,8 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/Features/authentication/data/domain/repo/auth_repo.dart';
-
 import 'sign_in_state.dart';
 
 class SignInCubit extends Cubit<SignInState> {
@@ -24,8 +21,6 @@ class SignInCubit extends Cubit<SignInState> {
         emit(SignInFailure(message: failure.message));
       },
       (user) {
-        log(user.userName);
-        log(user.email);
         emit(SignInSuccess(userEntity: user));
       },
     );

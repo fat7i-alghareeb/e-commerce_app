@@ -32,6 +32,25 @@ class AuthRepo {
     }
   }
 
+  Future<Either<Failure, UserEntity>> logInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final user = await firebaseAuthServices.logInWithEmailAndPassword(
+        emailAddress: email,
+        password: password,
+      );
+      return right(UserModel.fromFirebase(user));
+    } catch (e) {
+      return left(
+        ServerFailure(
+          e.toString(),
+        ),
+      );
+    }
+  }
+
   Future<Either<Failure, UserEntity>> signInWithGoogle() async {
     try {
       final user = await firebaseAuthServices.signInWithGoogle();
