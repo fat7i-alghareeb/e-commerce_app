@@ -6,17 +6,17 @@ import '../../../../../../utils/functions/is_email_valid.dart';
 import 'animated_text_field.dart';
 import 'auth_button.dart';
 
-class LogInMiddlePartUI extends StatefulWidget {
-  const LogInMiddlePartUI(
+class LogInMiddlePart extends StatefulWidget {
+  const LogInMiddlePart(
       {super.key, required animation, required this.pageController})
       : _animation = animation;
   final Animation<double> _animation;
   final PageController pageController;
   @override
-  State<LogInMiddlePartUI> createState() => _LogInMiddlePartUIState();
+  State<LogInMiddlePart> createState() => _LogInMiddlePartState();
 }
 
-class _LogInMiddlePartUIState extends State<LogInMiddlePartUI> {
+class _LogInMiddlePartState extends State<LogInMiddlePart> {
   final gmailController = TextEditingController();
   final passwordController = TextEditingController();
 

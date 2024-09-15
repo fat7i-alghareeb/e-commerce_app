@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../../utils/assets.dart';
 import '../auth pages widgets/animated_bottom_part.dart';
 import '../auth pages widgets/animated_divider.dart';
-import '../auth pages widgets/log_in_middle_part_Ui.dart';
+import '../auth pages widgets/log_in_middle_part.dart';
 
 class LogInBody extends StatefulWidget {
   const LogInBody({
@@ -62,7 +62,7 @@ class _LogInBodyState extends State<LogInBody> with TickerProviderStateMixin {
               const SizedBox(height: 50),
 
               ///////////////////////////////////////////////////////////////////////////////////////////
-              LogInMiddlePartUI(
+              LogInMiddlePart(
                   animation: _animation, pageController: widget.pageController),
               ///////////////////////////////////////////////////////////////////////////////////////////
               const SizedBox(height: 40),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/utils/helper_extensions.dart';
-import '../auth pages widgets/sign_in_middle_part_ui.dart';
+import '../auth pages widgets/sign_in_middle_part.dart';
 
 class SignInBody extends StatefulWidget {
   const SignInBody({
