@@ -8,7 +8,7 @@ class LogInCubit extends Cubit<LogInState> {
   LogInCubit(this.authRepo) : super(LogInInitial());
   final AuthRepo authRepo;
 
-  Future<void> createUserWithEmailAndPassword({
+  Future<void> logInWithEmailAndPassword({
     required String email,
     required String password,
     required String userName,
@@ -18,6 +18,19 @@ class LogInCubit extends Cubit<LogInState> {
       email: email,
       password: password,
     );
+    results.fold(
+      (failure) {
+        emit(LogInFailure(message: failure.message));
+      },
+      (user) {
+        emit(LogInSuccess(userEntity: user));
+      },
+    );
+  }
+
+  Future<void> signInWithGoogle() async {
+    emit(LogInLoading());
+    final results = await authRepo.signInWithGoogle();
     results.fold(
       (failure) {
         emit(LogInFailure(message: failure.message));

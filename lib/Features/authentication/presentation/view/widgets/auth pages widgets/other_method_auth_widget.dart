@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/Features/authentication/presentation/manger/signIn/sign_in_cubit.dart';
+import 'package:store_app/Features/authentication/presentation/manger/cubit/log_in_cubit.dart';
 
 class OtherMethodAuthWidget extends StatelessWidget {
   final String imagePath;
@@ -13,7 +13,7 @@ class OtherMethodAuthWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        BlocProvider.of<SignInCubit>(context).signInWithGoogle();
+        BlocProvider.of<LogInCubit>(context).signInWithGoogle();
       },
       child: Container(
         padding: const EdgeInsets.all(20),
