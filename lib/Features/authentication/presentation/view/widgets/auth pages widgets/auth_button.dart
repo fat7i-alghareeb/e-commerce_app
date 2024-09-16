@@ -5,11 +5,13 @@ class AuthButton extends StatelessWidget {
   final Function()? onTap;
   final Animation<double> animation;
   final String buttonName;
+  final Color? color;
   const AuthButton({
     super.key,
     required this.onTap,
     required this.animation,
     required this.buttonName,
+    this.color,
   });
 
   @override
@@ -33,7 +35,7 @@ class AuthButton extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(25),
           decoration: BoxDecoration(
-            color: context.accentColor(),
+            color: color ?? context.accentColor(),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Center(

@@ -93,6 +93,7 @@ class _SignInMiddlePartUIState extends State<SignInMiddlePartUI> {
                     password: passwordController.text,
                     userName: userNameController.text,
                   );
+
               HapticFeedback.heavyImpact();
             }
           },

@@ -1,5 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/Features/authentication/data/domain/repo/auth_repo.dart';
+import 'package:store_app/Features/authentication/presentation/manger/signIn/sign_in_cubit.dart';
+import 'package:store_app/Features/authentication/presentation/view/verification_screen.dart';
 
 import '../../Features/home/presentation/view/categories_list_screen.dart';
 import '../../Features/Cart/data/repo/cart_products_repo_impl.dart';
@@ -18,13 +23,20 @@ import 'router_paths.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
+    log('Navigating to: ${settings.name}'); // Debug print
     switch (settings.name) {
       case KRouter.authPage:
         return MaterialPageRoute(
           builder: (_) {
-            final int? initialPage = settings.arguments as int?;
-            return AuthPages(
-              initialPage: initialPage ?? 0,
+            return const AuthPages();
+          },
+        );
+      case KRouter.verificationScreen:
+        return MaterialPageRoute(
+          builder: (_) {
+            return BlocProvider(
+              create: (context) => SignInCubit(getIt.get<AuthRepo>()),
+              child: const VerificationScreen(),
             );
           },
         );

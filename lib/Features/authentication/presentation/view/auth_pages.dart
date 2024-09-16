@@ -11,22 +11,17 @@ import 'package:flutter/material.dart';
 class AuthPages extends StatefulWidget {
   const AuthPages({
     super.key,
-    required this.initialPage,
   });
-  final int initialPage;
   @override
   State<AuthPages> createState() => _MainNavigatorState();
 }
 
 class _MainNavigatorState extends State<AuthPages> {
-  late final PageController pageController;
+  late final PageController pageController = PageController();
 
   @override
   void initState() {
     super.initState();
-    pageController = PageController(
-      initialPage: widget.initialPage,
-    );
   }
 
   @override

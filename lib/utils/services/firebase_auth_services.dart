@@ -40,6 +40,8 @@ class FirebaseAuthServices {
       await credential.user?.updateDisplayName(userName);
       credential.user?.reload();
       final user = FirebaseAuth.instance.currentUser;
+      await user?.sendEmailVerification();
+
       return user!;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
