@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,8 +23,15 @@ class _LogInMiddlePartState extends State<LogInMiddlePart> {
   final gmailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  bool _isGmailValid = true;
-  bool _isPasswordValid = true;
+  late bool _isGmailValid;
+  late bool _isPasswordValid;
+
+  @override
+  void initState() {
+    _isGmailValid = true;
+    _isPasswordValid = true;
+    super.initState();
+  }
 
   bool _validateFields() {
     setState(() {
@@ -49,10 +58,10 @@ class _LogInMiddlePartState extends State<LogInMiddlePart> {
         AnimatedTextFormField(
           controller: gmailController,
           hintText: 'Gmail',
-          obscureText: false,
           animation: widget._animation,
           isValid: _isGmailValid,
           errorMessage: "Please enter a value or put a valid Gmail",
+          prefixIcon: Icons.email,
         ),
         ///////////////////////////////////////////////////////////////////////////////////////////
         const SizedBox(height: 10),
@@ -64,6 +73,7 @@ class _LogInMiddlePartState extends State<LogInMiddlePart> {
           animation: widget._animation,
           isValid: _isPasswordValid,
           errorMessage: "Please enter a value",
+          prefixIcon: Icons.lock,
         ),
 
         ///////////////////////////////////////////////////////////////////////////////////////////

@@ -23,19 +23,39 @@ class SignInMiddlePartUI extends StatefulWidget {
 class _SignInMiddlePartUIState extends State<SignInMiddlePartUI> {
   final gmailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
   final userNameController = TextEditingController();
-  bool _isGmailValid = true;
-  bool _isPasswordValid = true;
-  bool _isUserNameValid = true;
+  late bool _isGmailValid;
+  late bool _isPasswordValid;
+  late bool _isUserNameValid;
+  late bool _isConfirmPasswordController;
+  late bool _isPasswordsFieldsMatched;
+
+  @override
+  void initState() {
+    _isGmailValid = true;
+    _isPasswordValid = true;
+    _isUserNameValid = true;
+    _isConfirmPasswordController = true;
+    _isPasswordsFieldsMatched = true;
+    super.initState();
+  }
 
   bool _validateFields() {
     setState(() {
       _isGmailValid = isEmailValid(gmailController.text);
       _isPasswordValid = passwordController.text.isNotEmpty;
+      _isConfirmPasswordController = passwordController.text.isNotEmpty;
       _isUserNameValid = userNameController.text.isNotEmpty;
+      _isPasswordsFieldsMatched =
+          passwordController.text == confirmPasswordController.text;
     });
 
-    return _isUserNameValid && _isGmailValid && _isPasswordValid;
+    return _isUserNameValid &&
+        _isGmailValid &&
+        _isPasswordValid &&
+        _isConfirmPasswordController &&
+        _isPasswordsFieldsMatched;
   }
 
   @override
@@ -43,6 +63,7 @@ class _SignInMiddlePartUIState extends State<SignInMiddlePartUI> {
     gmailController.dispose();
     passwordController.dispose();
     userNameController.dispose();
+    confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -53,10 +74,10 @@ class _SignInMiddlePartUIState extends State<SignInMiddlePartUI> {
         AnimatedTextFormField(
           controller: userNameController,
           hintText: 'userName',
-          obscureText: false,
           animation: widget.animation,
           isValid: _isUserNameValid,
           errorMessage: "Please enter a value or put a valid Gmail",
+          prefixIcon: Icons.person,
         ),
         ///////////////////////////////////////////////////////////////////////////////////////////
         const SizedBox(height: 10),
@@ -64,10 +85,10 @@ class _SignInMiddlePartUIState extends State<SignInMiddlePartUI> {
         AnimatedTextFormField(
           controller: gmailController,
           hintText: 'Gmail',
-          obscureText: false,
           animation: widget.animation,
           isValid: _isGmailValid,
           errorMessage: "Please enter a value or put a valid Gmail",
+          prefixIcon: Icons.email,
         ),
         ///////////////////////////////////////////////////////////////////////////////////////////
         const SizedBox(height: 10),
@@ -77,8 +98,25 @@ class _SignInMiddlePartUIState extends State<SignInMiddlePartUI> {
           hintText: 'Password',
           obscureText: true,
           animation: widget.animation,
-          isValid: _isPasswordValid,
-          errorMessage: "Please enter a value",
+          isValid: _isPasswordValid && _isPasswordsFieldsMatched,
+          errorMessage: _isPasswordsFieldsMatched
+              ? "Please enter a value"
+              : "The password fields doesn't match",
+          prefixIcon: Icons.lock,
+        ),
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        const SizedBox(height: 10),
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        AnimatedTextFormField(
+          controller: confirmPasswordController,
+          hintText: 'Confirm password',
+          obscureText: true,
+          animation: widget.animation,
+          isValid: _isConfirmPasswordController && _isPasswordsFieldsMatched,
+          errorMessage: _isPasswordsFieldsMatched
+              ? "Please enter a value"
+              : "The password fields doesn't match",
+          prefixIcon: Icons.lock,
         ),
         ///////////////////////////////////////////////////////////////////////////////////////////
         const SizedBox(height: 35),

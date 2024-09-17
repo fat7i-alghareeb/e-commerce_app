@@ -15,6 +15,11 @@ ThemeData lightMode = ThemeData(
   brightness: Brightness.light,
   fontFamily: "oswald",
   primaryColor: lightMainColor,
+  textSelectionTheme: TextSelectionThemeData(
+    cursorColor: accentColor,
+    selectionColor: lightOnPrimaryColor.withOpacity(0.25),
+    selectionHandleColor: accentColor,
+  ),
   drawerTheme: const DrawerThemeData(backgroundColor: lightMainColor),
   scaffoldBackgroundColor: lightMainColor,
   appBarTheme: const AppBarTheme(
@@ -34,6 +39,11 @@ ThemeData darkMode = ThemeData(
   drawerTheme: const DrawerThemeData(backgroundColor: darkMainColor),
   appBarTheme: const AppBarTheme(
     backgroundColor: darkMainColor,
+  ),
+  textSelectionTheme: TextSelectionThemeData(
+    cursorColor: accentColor,
+    selectionColor: darkOnPrimaryColor.withOpacity(0.25),
+    selectionHandleColor: accentColor,
   ),
   primaryColor: darkMainColor,
   scaffoldBackgroundColor: darkMainColor,
