@@ -39,42 +39,46 @@ class _LogInBodyState extends State<LogInBody> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const SizedBox(height: 30),
-              SlideTransition(
-                position: Tween<Offset>(
-                  begin: const Offset(0, -1),
-                  end: Offset.zero,
-                ).animate(_animation),
-                child: Image.asset(
-                  AssetsImages.storeLogo,
-                  height: 150,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(height: 30),
+                SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(0, -1),
+                    end: Offset.zero,
+                  ).animate(_animation),
+                  child: Image.asset(
+                    AssetsImages.storeLogo,
+                    height: 150,
+                  ),
                 ),
-              ),
-              ///////////////////////////////////////////////////////////////////////////////////////////
-              const SizedBox(height: 50),
+                ///////////////////////////////////////////////////////////////////////////////////////////
+                const SizedBox(height: 50),
 
-              ///////////////////////////////////////////////////////////////////////////////////////////
-              LogInMiddlePart(
-                  animation: _animation, pageController: widget.pageController),
-              ///////////////////////////////////////////////////////////////////////////////////////////
-              const SizedBox(height: 40),
-              ///////////////////////////////////////////////////////////////////////////////////////////
-              AnimatedDivider(colorAnimation: _colorAnimation),
-              const SizedBox(height: 50),
-              AnimatedBottomPart(
-                downAnimation: _downAnimation,
-              ),
-              //////////////////////////////////////////////////////////////////////////////////////////////
-              const SizedBox(height: 50),
-            ],
+                ///////////////////////////////////////////////////////////////////////////////////////////
+                LogInMiddlePart(
+                    animation: _animation,
+                    pageController: widget.pageController),
+                ///////////////////////////////////////////////////////////////////////////////////////////
+                const SizedBox(height: 40),
+                ///////////////////////////////////////////////////////////////////////////////////////////
+                AnimatedDivider(colorAnimation: _colorAnimation),
+                const SizedBox(height: 50),
+                AnimatedBottomPart(
+                  downAnimation: _downAnimation,
+                ),
+                //////////////////////////////////////////////////////////////////////////////////////////////
+                const SizedBox(height: 50),
+              ],
+            ),
           ),
         ),
       ),
