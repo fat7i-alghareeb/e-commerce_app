@@ -24,8 +24,19 @@ class SignInCubit extends Cubit<SignInState> {
       },
       (user) {
         log(user.userName);
-
         emit(SignInSuccess(userEntity: user));
+      },
+    );
+  }
+
+  Future<void> sendVerificationEmail() async {
+    final result = await authRepo.sendVerificationEmail();
+    result.fold(
+      (failure) {
+        emit(SignInEmailVerificationFailure(message: failure.message));
+      },
+      (success) {
+        emit(SignInEmailVerificationSuccess());
       },
     );
   }

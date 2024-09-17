@@ -40,8 +40,7 @@ class FirebaseAuthServices {
       await credential.user?.updateDisplayName(userName);
       credential.user?.reload();
       final user = FirebaseAuth.instance.currentUser;
-      await user?.sendEmailVerification();
-
+      await sendVerificationEmail();
       return user!;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -52,7 +51,7 @@ class FirebaseAuthServices {
         throw Exception("An error occurred. Please try again");
       }
     } catch (e) {
-      throw Exception(e);
+      throw Exception("An unexpected error occurred: ${e.toString()}");
     }
   }
 
@@ -70,5 +69,25 @@ class FirebaseAuthServices {
     final userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
     return userCredential.user!;
+  }
+
+  Future<void> sendVerificationEmail() async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+
+      if (user != null && !user.emailVerified) {
+        await user.sendEmailVerification();
+      } else {
+        throw Exception("User is already verified or not logged in.");
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'too-many-requests') {
+        throw Exception("Too many requests. Please try again later.");
+      } else {
+        throw Exception("Failed to send verification email. Please try again.");
+      }
+    } catch (e) {
+      throw Exception("An unexpected error occurred: ${e.toString()}");
+    }
   }
 }

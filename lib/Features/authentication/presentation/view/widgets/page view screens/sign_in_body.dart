@@ -34,44 +34,50 @@ class _SignInBodyState extends State<SignInBody> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 40),
-        child: ListView(
-          children: [
-            SlideTransition(
-              position: Tween<Offset>(
-                begin: const Offset(0, -4),
-                end: Offset.zero,
-              ).animate(_animation),
+        padding: const EdgeInsets.only(left: 25, right: 25, top: 50),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    "Sign in",
-                    style: TextStyle(
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold,
-                      color: context.accentColor(),
+                  SlideTransition(
+                    position: Tween<Offset>(
+                      begin: const Offset(0, -4),
+                      end: Offset.zero,
+                    ).animate(_animation),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Sign in",
+                          style: TextStyle(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            color: context.accentColor(),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        Text(
+                          "just a few quick things to get started",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: context.onPrimaryColor(),
+                          ),
+                        )
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  Text(
-                    "just a few quick things to get started",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: context.onPrimaryColor(),
-                    ),
-                  )
+                  ///////////////////////////////////////////////////////////////////////////////////////////
+                  const SizedBox(height: 50),
+                  ///////////////////////////////////////////////////////////////////////////////////////////
+                  SignInMiddlePartUI(
+                    animation: _animation,
+                    pageController: widget.pageController,
+                  ),
+                  ///////////////////////////////////////////////////////////////////////////////////////////
                 ],
               ),
             ),
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            const SizedBox(height: 50),
-            ///////////////////////////////////////////////////////////////////////////////////////////
-            SignInMiddlePartUI(
-              animation: _animation,
-              pageController: widget.pageController,
-            ),
-            ///////////////////////////////////////////////////////////////////////////////////////////
           ],
         ),
       ),

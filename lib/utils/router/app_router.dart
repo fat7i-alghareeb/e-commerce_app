@@ -35,7 +35,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) {
             return BlocProvider(
-              create: (context) => SignInCubit(getIt.get<AuthRepo>()),
+              create: (context) => getIt.get<SignInCubit>(),
               child: const VerificationScreen(),
             );
           },

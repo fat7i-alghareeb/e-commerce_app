@@ -43,13 +43,14 @@ class _MainNavigatorState extends State<AuthPages> {
         ),
       ),
       BlocProvider(
-        create: (context) => SignInCubit(getIt.get<AuthRepo>()),
+        create: (context) => getIt.get<SignInCubit>(),
         child: SignInScreen(
           pageController: pageController,
         ),
       ),
     ];
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: PageView(
         controller: pageController,
         physics: const NeverScrollableScrollPhysics(),

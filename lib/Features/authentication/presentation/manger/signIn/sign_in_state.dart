@@ -17,3 +17,11 @@ final class SignInFailure extends SignInState {
 
   SignInFailure({required this.message});
 }
+
+final class SignInEmailVerificationFailure extends SignInState {
+  final String message;
+
+  SignInEmailVerificationFailure({required this.message});
+}
+
+final class SignInEmailVerificationSuccess extends SignInState {}

@@ -56,12 +56,18 @@ class AuthRepo {
       final user = await firebaseAuthServices.signInWithGoogle();
       return right(UserModel.fromFirebase(user));
     } catch (e) {
-      log(e.toString());
       return left(
-        ServerFailure(
-          e.toString(),
-        ),
+        ServerFailure(e.toString()),
       );
+    }
+  }
+
+  Future<Either<Failure, Unit>> sendVerificationEmail() async {
+    try {
+      await firebaseAuthServices.sendVerificationEmail();
+      return right(unit);
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
     }
   }
 }

@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:store_app/Features/authentication/data/domain/repo/auth_repo.dart';
+import 'package:store_app/Features/authentication/presentation/manger/signIn/sign_in_cubit.dart';
 import 'package:store_app/Features/search/data/repo/search_repo.dart';
 import 'package:store_app/utils/services/firebase_auth_services.dart';
 import '../Features/Cart/data/repo/cart_products_repo_impl.dart';
@@ -29,6 +30,9 @@ void setupServiceLocator() {
     AuthRepo(
       firebaseAuthServices: getIt.get<FirebaseAuthServices>(),
     ),
+  );
+  getIt.registerSingleton<SignInCubit>(
+    SignInCubit(getIt.get<AuthRepo>()),
   );
 }
 
