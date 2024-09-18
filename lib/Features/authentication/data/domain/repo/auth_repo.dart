@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import '../entity/user_entity.dart';
 import '../../models/user_model.dart';
