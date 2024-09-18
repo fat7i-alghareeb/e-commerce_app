@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/Features/authentication/presentation/manger/cubit/log_in_cubit.dart';
-import 'package:store_app/Features/authentication/presentation/manger/signIn/sign_in_cubit.dart';
-import 'package:store_app/Features/authentication/presentation/view/widgets/page%20view%20screens/sign_in_screen.dart';
+import '../manger/cubit/log_in_cubit.dart';
+import '../manger/signIn/sign_in_cubit.dart';
+import 'widgets/page%20view%20screens/sign_in_screen.dart';
 import '../../../../utils/service_locator.dart';
 import '../../data/domain/repo/auth_repo.dart';
 import 'widgets/page view screens/log_in_screen.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/Features/authentication/presentation/manger/signIn/sign_in_cubit.dart';
-import 'package:store_app/utils/helper_extensions.dart';
+import '../manger/signIn/sign_in_cubit.dart';
+import '../../../../utils/helper_extensions.dart';
 import '../../../../utils/service_locator.dart';
 import 'widgets/verification screen widgets/verification_button.dart';
 

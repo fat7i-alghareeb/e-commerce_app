@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/utils/assets.dart';
+import '../../../../utils/assets.dart';
 import '../../../../shared/models/product.dart';
 import '../../../../utils/service_locator.dart';
 import '../../data/repo/cart_products_repo_impl.dart';

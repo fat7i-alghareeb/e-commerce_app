@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/utils/helper_extensions.dart';
+import '../../../../../utils/helper_extensions.dart';
 import '../../../../../shared/models/product.dart';
 import '../../../../../shared/widgets/sliver_sized_box.dart';
 import 'home widgets/categories_part_widget.dart';

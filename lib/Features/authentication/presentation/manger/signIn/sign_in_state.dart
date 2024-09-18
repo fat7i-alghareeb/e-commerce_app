@@ -1,4 +1,4 @@
-import 'package:store_app/Features/authentication/data/domain/entity/user_entity.dart';
+import '../../../data/domain/entity/user_entity.dart';
 
 class SignInState {}
 

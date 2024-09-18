@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/utils/assets.dart';
-import 'package:store_app/utils/helper_extensions.dart';
+import '../../../../../utils/assets.dart';
+import '../../../../../utils/helper_extensions.dart';
 
 import '../../../../../shared/widgets/products_grid_view.dart';
 import '../../cubit/search_cubit.dart';

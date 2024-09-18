@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:store_app/shared/models/api_response.dart';
+import '../../../../shared/models/api_response.dart';
 import '../../../../utils/errors/failure.dart';
 import '../../../../utils/services/products_services.dart';
 

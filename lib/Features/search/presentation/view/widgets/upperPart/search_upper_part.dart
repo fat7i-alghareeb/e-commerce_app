@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:store_app/utils/helper_extensions.dart';
+import '../../../../../../utils/helper_extensions.dart';
 
 import '../../../../../../shared/widgets/app_icon.dart';
 import '../../../../../../utils/assets.dart';

@@ -2,9 +2,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/Features/authentication/data/domain/repo/auth_repo.dart';
-import 'package:store_app/Features/authentication/presentation/manger/signIn/sign_in_cubit.dart';
-import 'package:store_app/Features/authentication/presentation/view/verification_screen.dart';
+import '../../Features/authentication/data/domain/repo/auth_repo.dart';
+import '../../Features/authentication/presentation/manger/signIn/sign_in_cubit.dart';
+import '../../Features/authentication/presentation/view/verification_screen.dart';
 
 import '../../Features/home/presentation/view/categories_list_screen.dart';
 import '../../Features/Cart/data/repo/cart_products_repo_impl.dart';

@@ -1,10 +1,10 @@
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
-import 'package:store_app/Features/authentication/data/domain/entity/user_entity.dart';
-import 'package:store_app/Features/authentication/data/models/user_model.dart';
-import 'package:store_app/utils/errors/failure.dart';
-import 'package:store_app/utils/services/firebase_auth_services.dart';
+import '../entity/user_entity.dart';
+import '../../models/user_model.dart';
+import '../../../../../utils/errors/failure.dart';
+import '../../../../../utils/services/firebase_auth_services.dart';
 
 class AuthRepo {
   final FirebaseAuthServices firebaseAuthServices;

@@ -28,7 +28,6 @@ class _LogInBodyState extends State<LogInBody> with TickerProviderStateMixin {
     initAnimations();
   }
 
-//todo solve the focus problem when keyboard closed
   @override
   void dispose() {
     _controller.dispose();

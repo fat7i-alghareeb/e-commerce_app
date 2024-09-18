@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/Features/Navigator/presentation/view/widgets/drawer%20widgets/theme_switch.dart';
+import '../drawer%20widgets/theme_switch.dart';
 
 import '../../../../../User/presentation/view/widgets/custom_divider.dart';
 

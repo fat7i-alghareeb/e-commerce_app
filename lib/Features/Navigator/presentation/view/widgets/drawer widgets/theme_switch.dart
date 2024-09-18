@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/utils/helper_extensions.dart';
+import '../../../../../../utils/helper_extensions.dart';
 
 import '../../../../../../shared/cubits/cubit/user_info_cubit.dart';
 

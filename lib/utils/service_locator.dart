@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:store_app/Features/authentication/data/domain/repo/auth_repo.dart';
-import 'package:store_app/Features/authentication/presentation/manger/signIn/sign_in_cubit.dart';
-import 'package:store_app/Features/search/data/repo/search_repo.dart';
-import 'package:store_app/utils/services/firebase_auth_services.dart';
+import '../Features/authentication/data/domain/repo/auth_repo.dart';
+import '../Features/authentication/presentation/manger/signIn/sign_in_cubit.dart';
+import '../Features/search/data/repo/search_repo.dart';
+import 'services/firebase_auth_services.dart';
 import '../Features/Cart/data/repo/cart_products_repo_impl.dart';
 import '../Features/home/data/domain/repo/products_repo_impl.dart';
 import 'services/products_services.dart';

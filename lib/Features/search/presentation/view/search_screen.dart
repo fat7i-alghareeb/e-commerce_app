@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/Features/search/data/repo/search_repo.dart';
-import 'package:store_app/Features/search/presentation/view/widgets/search_states.dart';
-import 'package:store_app/shared/widgets/sliver_sized_box.dart';
+import '../../data/repo/search_repo.dart';
+import 'widgets/search_states.dart';
+import '../../../../shared/widgets/sliver_sized_box.dart';
 import '../../../../utils/service_locator.dart';
 import '../cubit/search_cubit.dart';
 import 'widgets/number_of_results.dart';

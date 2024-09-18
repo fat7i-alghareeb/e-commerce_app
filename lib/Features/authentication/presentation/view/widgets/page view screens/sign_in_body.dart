@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/utils/helper_extensions.dart';
+import '../../../../../../utils/helper_extensions.dart';
 import '../auth pages widgets/sign_in_middle_part.dart';
 
 class SignInBody extends StatefulWidget {
@@ -22,7 +22,6 @@ class _SignInBodyState extends State<SignInBody> with TickerProviderStateMixin {
     initAnimations();
   }
 
-//todo solve the focus problem when keyboard closed
   @override
   void dispose() {
     _controller.dispose();

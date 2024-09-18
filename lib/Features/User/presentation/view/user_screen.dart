@@ -1,6 +1,6 @@
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:store_app/utils/assets.dart';
-import 'package:store_app/utils/helper_extensions.dart';
+import '../../../../utils/assets.dart';
+import '../../../../utils/helper_extensions.dart';
 
 import '../../../../shared/cubits/cubit/user_info_cubit.dart';
 import '../../../../shared/cubits/cubit/user_info_state.dart';

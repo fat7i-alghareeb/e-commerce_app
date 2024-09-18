@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/utils/helper_extensions.dart';
+import '../../../../../utils/helper_extensions.dart';
 import '../../../../../shared/models/product.dart';
 import 'details_sub_titles.dart';
 import 'details_titles.dart';

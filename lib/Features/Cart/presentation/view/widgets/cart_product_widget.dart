@@ -1,5 +1,5 @@
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:store_app/utils/helper_extensions.dart';
+import '../../../../../utils/helper_extensions.dart';
 import '../../../../../shared/widgets/app_image.dart';
 import '../../../../../utils/router/router_paths.dart';
 import 'package:flutter/material.dart';

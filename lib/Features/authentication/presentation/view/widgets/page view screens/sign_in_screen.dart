@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/Features/authentication/presentation/manger/signIn/sign_in_cubit.dart';
-import 'package:store_app/Features/authentication/presentation/manger/signIn/sign_in_state.dart';
-import 'package:store_app/utils/functions/sign_in_indicator.dart';
+import '../../../manger/signIn/sign_in_cubit.dart';
+import '../../../manger/signIn/sign_in_state.dart';
+import '../../../../../../utils/functions/sign_in_indicator.dart';
 import '../../../../../../utils/router/router_paths.dart';
 import 'sign_in_body.dart';
 

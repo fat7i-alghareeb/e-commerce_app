@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/utils/helper_extensions.dart';
+import '../../utils/helper_extensions.dart';
 
 import '../../utils/router/router_paths.dart';
 import '../models/product.dart';

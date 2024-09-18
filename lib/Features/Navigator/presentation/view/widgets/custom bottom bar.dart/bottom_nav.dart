@@ -1,8 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import '../../../../../../utils/assets.dart';
 
+import '../../../../../../utils/assets.dart';
 import 'nav_icon.dart';
 
 class CustomBottomBar extends StatelessWidget {

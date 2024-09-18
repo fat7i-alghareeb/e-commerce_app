@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/utils/helper_extensions.dart';
+import '../../utils/helper_extensions.dart';
 import '../../utils/assets.dart';
 import '../../utils/router/router_paths.dart';
 import '../../Features/home/presentation/manger/products cubit/products_cubit.dart';

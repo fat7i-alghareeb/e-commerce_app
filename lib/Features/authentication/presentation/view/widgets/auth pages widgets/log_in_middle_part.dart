@@ -1,10 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/Features/authentication/presentation/manger/cubit/log_in_cubit.dart';
-import 'package:store_app/utils/helper_extensions.dart';
+import '../../../manger/cubit/log_in_cubit.dart';
+import '../../../../../../utils/helper_extensions.dart';
 import '../../../../../../utils/functions/is_email_valid.dart';
 import 'animated_text_field.dart';
 import 'auth_button.dart';
