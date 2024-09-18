@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../manger/signIn/sign_in_cubit.dart';
@@ -11,9 +14,18 @@ class VerificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => getIt.get<SignInCubit>(),
-      child: const Scaffold(
-        body: SafeArea(
-          child: VerificationBody(),
+      child: PopScope(
+        onPopInvokedWithResult: (didPop, result) async {
+          if (didPop) {
+            log("fuck");
+            final user = FirebaseAuth.instance.currentUser;
+            await user?.delete();
+          }
+        },
+        child: const Scaffold(
+          body: SafeArea(
+            child: VerificationBody(),
+          ),
         ),
       ),
     );
