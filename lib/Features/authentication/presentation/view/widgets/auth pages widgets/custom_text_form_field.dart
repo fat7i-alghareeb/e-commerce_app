@@ -53,9 +53,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                   });
                 },
                 child: Icon(
-                  Icons.remove_red_eye,
+                  _obscureText
+                      ? Icons.remove_red_eye_outlined
+                      : Icons.remove_red_eye,
                   size: 25,
-                  color: widget.obscureText
+                  color: _obscureText
                       ? context.onPrimaryColor().withOpacity(0.5)
                       : context.accentColor(),
                 ),
