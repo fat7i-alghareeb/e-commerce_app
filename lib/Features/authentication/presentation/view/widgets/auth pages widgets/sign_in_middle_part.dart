@@ -43,7 +43,7 @@ class _SignInMiddlePartUIState extends State<SignInMiddlePartUI> {
 
   bool _validateFields() {
     setState(() {
-      _isGmailValid = isEmailValid(gmailController.text);
+      _isGmailValid = isEmailValid(gmailController.text.trim());
       _isPasswordValid = passwordController.text.isNotEmpty;
       _isConfirmPasswordController = passwordController.text.isNotEmpty;
       _isUserNameValid = userNameController.text.isNotEmpty;
@@ -127,9 +127,9 @@ class _SignInMiddlePartUIState extends State<SignInMiddlePartUI> {
             if (_validateFields()) {
               FocusManager.instance.primaryFocus?.unfocus();
               context.read<SignInCubit>().createUserWithEmailAndPassword(
-                    email: gmailController.text,
-                    password: passwordController.text,
-                    userName: userNameController.text,
+                    email: gmailController.text.trim(),
+                    password: passwordController.text.trim(),
+                    userName: userNameController.text.trim(),
                   );
 
               HapticFeedback.heavyImpact();
@@ -156,7 +156,7 @@ class _SignInMiddlePartUIState extends State<SignInMiddlePartUI> {
                   fontSize: 18,
                 ),
               ),
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   HapticFeedback.heavyImpact();
                   widget.pageController.jumpToPage(1);

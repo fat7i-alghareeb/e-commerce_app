@@ -1,11 +1,13 @@
 import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../../utils/helper_extensions.dart';
-import '../../../../../../utils/functions/custom_snake_bar.dart';
+
 import '../../../../../../utils/functions/formatted_time_from_Int.dart';
+import '../../../../../../utils/functions/show_toast.dart';
+import '../../../../../../utils/helper_extensions.dart';
 import '../../../../../../utils/router/router_paths.dart';
 import '../../../manger/signIn/sign_in_cubit.dart';
 import '../../../manger/signIn/sign_in_state.dart';
@@ -50,15 +52,13 @@ class _VerificationButtonState extends State<VerificationButton> {
     return BlocListener<SignInCubit, SignInState>(
       listener: (context, state) {
         if (state is SignInEmailVerificationSuccess) {
-          customSnakeBar(
-            context: context,
-            text: "Verification email sent!",
+          showToast(
+            message: "Verification email sent!",
             color: Colors.green,
           );
         } else if (state is SignInEmailVerificationFailure) {
-          customSnakeBar(
-            context: context,
-            text: state.message,
+          showToast(
+            message: state.message,
             color: Colors.red,
           );
         }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import '../../../../../utils/helper_extensions.dart';
+import 'package:timeago/timeago.dart' as timeago;
+
 import '../../../../../shared/models/review.dart';
 import '../../../../../utils/assets.dart';
-import 'package:timeago/timeago.dart' as timeago;
+import '../../../../../utils/helper_extensions.dart';
 
 class ReviewerRatingWidget extends StatelessWidget {
   const ReviewerRatingWidget({super.key, required this.review});

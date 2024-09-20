@@ -68,4 +68,14 @@ class AuthRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  Future<Either<Failure, Unit>> sendPasswordResetEmail(
+      {required String email}) async {
+    try {
+      await firebaseAuthServices.sendPasswordResetEmail(email: email);
+      return right(unit);
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }

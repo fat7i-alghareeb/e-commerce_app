@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import 'product.dart';
+
 part 'api_response.g.dart';
 
 @JsonSerializable()

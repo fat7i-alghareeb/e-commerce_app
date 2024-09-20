@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,7 +15,6 @@ class VerificationScreen extends StatelessWidget {
       child: PopScope(
         onPopInvokedWithResult: (didPop, result) async {
           if (didPop) {
-            log("fuck");
             final user = FirebaseAuth.instance.currentUser;
             await user?.delete();
           }

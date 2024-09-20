@@ -18,3 +18,15 @@ final class LogInFailure extends LogInState {
 
   LogInFailure({required this.message});
 }
+
+final class LogInPasswordResetFailure extends LogInState {
+  final String message;
+
+  LogInPasswordResetFailure({required this.message});
+}
+
+class LogInPasswordResetSent extends LogInState {
+  final String message;
+
+  LogInPasswordResetSent({required this.message});
+}

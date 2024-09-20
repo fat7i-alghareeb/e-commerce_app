@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../../utils/functions/show_toast.dart';
 import '../../../manger/signIn/sign_in_cubit.dart';
 import '../../../manger/signIn/sign_in_state.dart';
 import '../../../../../../utils/functions/sign_in_indicator.dart';
@@ -15,14 +16,7 @@ class SignInScreen extends StatelessWidget {
         if (state is SignInLoading) {
           signInLoadingIndicator(context: context, isLoading: true);
         } else if (state is SignInFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              duration: const Duration(seconds: 2),
-              content: Text(state.message),
-              backgroundColor: Colors.red[700],
-              padding: const EdgeInsets.all(25),
-            ),
-          );
+          showToast(message: state.message, color: Colors.red[700]);
           signInLoadingIndicator(context: context, isLoading: false);
         } else if (state is SignInSuccess) {
           signInLoadingIndicator(context: context, isLoading: false);

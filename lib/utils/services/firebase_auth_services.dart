@@ -90,4 +90,18 @@ class FirebaseAuthServices {
       throw Exception("An unexpected error occurred: ${e.toString()}");
     }
   }
+
+  Future<void> sendPasswordResetEmail({required String email}) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        throw Exception('No user found for that email.');
+      } else {
+        throw Exception('An error occurred while sending the reset email.');
+      }
+    } catch (e) {
+      throw Exception("An unexpected error occurred: ${e.toString()}");
+    }
+  }
 }

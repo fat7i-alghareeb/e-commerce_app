@@ -23,6 +23,7 @@ class _LogInMiddlePartState extends State<LogInMiddlePart> {
 
   late bool _isGmailValid;
   late bool _isPasswordValid;
+  bool _sendPasswordReset = true;
 
   @override
   void initState() {
@@ -82,7 +83,23 @@ class _LogInMiddlePartState extends State<LogInMiddlePart> {
             begin: const Offset(4, 0),
             end: Offset.zero,
           ).animate(widget._animation),
-          child: GestureDetector(
+          child: InkWell(
+            onTap: () {
+              HapticFeedback.heavyImpact();
+              setState(() {
+                _isGmailValid = isEmailValid(gmailController.text);
+              });
+              if (_isGmailValid && _sendPasswordReset) {
+                context
+                    .read<LogInCubit>()
+                    .sendPasswordResetEmail(email: gmailController.text.trim());
+                _sendPasswordReset = false;
+              }
+              Future.delayed(
+                const Duration(seconds: 10),
+                () => _sendPasswordReset = true,
+              );
+            },
             child: Text(
               "Forget password?",
               style: TextStyle(
@@ -102,8 +119,8 @@ class _LogInMiddlePartState extends State<LogInMiddlePart> {
             if (_validateFields()) {
               FocusManager.instance.primaryFocus?.unfocus();
               context.read<LogInCubit>().logInWithEmailAndPassword(
-                    email: gmailController.text,
-                    password: passwordController.text,
+                    email: gmailController.text.trim(),
+                    password: passwordController.text.trim(),
                   );
               HapticFeedback.heavyImpact();
             }
@@ -129,7 +146,7 @@ class _LogInMiddlePartState extends State<LogInMiddlePart> {
                   fontSize: 18,
                 ),
               ),
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   HapticFeedback.heavyImpact();
 
