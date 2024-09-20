@@ -61,6 +61,7 @@ class _LogInMiddlePartState extends State<LogInMiddlePart> {
           isValid: _isGmailValid,
           errorMessage: "Please enter a value or put a valid Gmail",
           prefixIcon: Icons.email,
+          textInputType: TextInputType.emailAddress,
         ),
         ///////////////////////////////////////////////////////////////////////////////////////////
         const SizedBox(height: 10),

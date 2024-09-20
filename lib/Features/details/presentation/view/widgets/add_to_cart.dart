@@ -65,8 +65,8 @@ class _AddToCartWidgetState extends State<AddToCartWidget>
         animation: _animationController,
         builder: (context, child) {
           return GestureDetector(
-            onTap: () => BlocProvider.of<CartProductCubit>(context)
-                .saveProduct(widget.product),
+            onTap: () =>
+                context.read<CartProductCubit>().saveProduct(widget.product),
             child: Container(
               height: size.height * .07,
               decoration: BoxDecoration(

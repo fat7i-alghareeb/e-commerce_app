@@ -1,11 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../Features/authentication/data/domain/repo/auth_repo.dart';
 import '../../Features/authentication/presentation/manger/signIn/sign_in_cubit.dart';
 import '../../Features/authentication/presentation/view/verification_screen.dart';
-
 import '../../Features/home/presentation/view/categories_list_screen.dart';
 import '../../Features/Cart/data/repo/cart_products_repo_impl.dart';
 import '../../Features/Cart/presentation/manger/cubit/cart_product_cubit.dart';
@@ -23,7 +19,6 @@ import 'router_paths.dart';
 
 class AppRouter {
   Route generateRoute(RouteSettings settings) {
-    log('Navigating to: ${settings.name}'); // Debug print
     switch (settings.name) {
       case KRouter.authPage:
         return MaterialPageRoute(

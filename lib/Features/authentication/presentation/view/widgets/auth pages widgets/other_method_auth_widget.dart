@@ -13,7 +13,7 @@ class OtherMethodAuthWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        BlocProvider.of<LogInCubit>(context).signInWithGoogle();
+        context.read<LogInCubit>().signInWithGoogle();
       },
       child: Container(
         padding: const EdgeInsets.all(20),

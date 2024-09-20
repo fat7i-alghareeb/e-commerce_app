@@ -76,8 +76,9 @@ class _SignInMiddlePartUIState extends State<SignInMiddlePartUI> {
           hintText: 'userName',
           animation: widget.animation,
           isValid: _isUserNameValid,
-          errorMessage: "Please enter a value or put a valid Gmail",
+          errorMessage: "Please enter a value",
           prefixIcon: Icons.person,
+          textInputType: TextInputType.name,
         ),
         ///////////////////////////////////////////////////////////////////////////////////////////
         const SizedBox(height: 10),
@@ -89,6 +90,7 @@ class _SignInMiddlePartUIState extends State<SignInMiddlePartUI> {
           isValid: _isGmailValid,
           errorMessage: "Please enter a value or put a valid Gmail",
           prefixIcon: Icons.email,
+          textInputType: TextInputType.emailAddress,
         ),
         ///////////////////////////////////////////////////////////////////////////////////////////
         const SizedBox(height: 10),

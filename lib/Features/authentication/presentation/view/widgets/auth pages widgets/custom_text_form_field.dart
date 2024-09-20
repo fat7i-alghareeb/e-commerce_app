@@ -10,6 +10,7 @@ class CustomTextFormField extends StatefulWidget {
     required this.isValid,
     required this.hintText,
     required this.errorMessage,
+    this.textInputType,
   });
 
   final TextEditingController controller;
@@ -18,7 +19,7 @@ class CustomTextFormField extends StatefulWidget {
   final bool isValid;
   final String hintText;
   final String errorMessage;
-
+  final TextInputType? textInputType;
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
@@ -39,6 +40,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       style: TextStyle(
         color: context.onPrimaryColor(),
       ),
+      keyboardType: widget.textInputType,
       cursorColor: context.onPrimaryColor(),
       decoration: InputDecoration(
         prefixIcon: Icon(

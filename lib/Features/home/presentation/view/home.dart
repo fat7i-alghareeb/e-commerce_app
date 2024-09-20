@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return LiquidPullToRefresh(
       onRefresh: () {
-        return BlocProvider.of<ProductsCubit>(context).getAllProducts();
+        return context.read<ProductsCubit>().getAllProducts();
       },
       animSpeedFactor: 3,
       showChildOpacityTransition: false,

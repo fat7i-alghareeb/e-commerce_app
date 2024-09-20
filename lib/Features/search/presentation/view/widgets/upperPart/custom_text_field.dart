@@ -52,7 +52,8 @@ class CustomTextField extends StatelessWidget {
                 focusNode: searchFocusNode,
                 onSubmitted: (value) {
                   if (value.isNotEmpty) {
-                    BlocProvider.of<SearchCubit>(context)
+                    context
+                        .read<SearchCubit>()
                         .fetchProducts(searchText: value);
                   }
                 },

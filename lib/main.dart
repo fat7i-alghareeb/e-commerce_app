@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    bool userSelectedTheme = BlocProvider.of<UserInfoCubit>(context).userTheme;
+    bool userSelectedTheme = context.read<UserInfoCubit>().userTheme;
 
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
@@ -76,8 +76,7 @@ class _MyAppState extends State<MyApp> {
     return BlocListener<UserInfoCubit, UserInfoState>(
       listener: (context, state) {
         if (state is EditThemeUserInfo) {
-          userSelectedTheme =
-              !BlocProvider.of<UserInfoCubit>(context).userTheme;
+          userSelectedTheme = !context.read<UserInfoCubit>().userTheme;
           setState(() {});
         }
       },

@@ -37,8 +37,7 @@ class CustomAppBar extends StatelessWidget {
             IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, KRouter.searchScreen,
-                    arguments:
-                        BlocProvider.of<ProductsCubit>(context).products);
+                    arguments: context.read<ProductsCubit>().products);
                 HapticFeedback.heavyImpact();
               },
               icon: Icon(

@@ -69,7 +69,7 @@ class HomeSearchWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, KRouter.searchScreen,
-            arguments: BlocProvider.of<ProductsCubit>(context).products);
+            arguments: context.read<ProductsCubit>().products);
         HapticFeedback.heavyImpact();
       },
       child: Container(

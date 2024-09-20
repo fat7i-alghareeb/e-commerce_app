@@ -37,7 +37,7 @@ class _UserScreenBodyState extends State<UserScreenBody> {
   late User userInfo;
   @override
   void initState() {
-    userInfo = BlocProvider.of<UserInfoCubit>(context).user;
+    userInfo = context.read<UserInfoCubit>().user;
 
     super.initState();
   }

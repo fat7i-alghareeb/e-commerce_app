@@ -18,8 +18,8 @@ class _CategoriesPartState extends State<CategoriesPart> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<CategoriesCubit>(context).setCategories();
-    categories = BlocProvider.of<CategoriesCubit>(context).categories;
+    context.read<CategoriesCubit>().setCategories();
+    categories = context.read<CategoriesCubit>().categories;
   }
 
   @override

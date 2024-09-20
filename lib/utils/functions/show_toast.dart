@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -7,7 +5,6 @@ void showToast({
   required String message,
   required Color? color,
 }) {
-  log("message");
   Fluttertoast.showToast(
     msg: message,
     backgroundColor: color,

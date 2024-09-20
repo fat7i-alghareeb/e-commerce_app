@@ -22,7 +22,7 @@ class CartScreen extends StatelessWidget {
           ..fetchCardProduct(),
         child: BlocBuilder<CartProductCubit, CartProductState>(
           builder: (context, state) {
-            products = BlocProvider.of<CartProductCubit>(context).cartProducts;
+            products = context.read<CartProductCubit>().cartProducts;
             if (products.isNotEmpty) {
               return CartScreenBody(products: products);
             } else {

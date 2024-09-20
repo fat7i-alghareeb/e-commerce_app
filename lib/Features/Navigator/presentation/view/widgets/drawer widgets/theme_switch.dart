@@ -17,7 +17,7 @@ class _ThemeSwitchState extends State<ThemeSwitch> {
 
   @override
   void initState() {
-    lightTheme = BlocProvider.of<UserInfoCubit>(context).userTheme;
+    lightTheme = context.read<UserInfoCubit>().userTheme;
     super.initState();
   }
 
@@ -45,7 +45,7 @@ class _ThemeSwitchState extends State<ThemeSwitch> {
             setState(
               () {
                 lightTheme = !value;
-                BlocProvider.of<UserInfoCubit>(context).changeTheme();
+                context.read<UserInfoCubit>().changeTheme();
               },
             );
           },

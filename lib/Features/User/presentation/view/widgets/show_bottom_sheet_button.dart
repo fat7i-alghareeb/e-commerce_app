@@ -67,7 +67,8 @@ class BottomSheetBody extends StatefulWidget {
 //todo fix textEditingController
 class _BottomSheetBodyState extends State<BottomSheetBody> {
   void _changeInfo({String? userName, String? gmail, String? password}) {
-    BlocProvider.of<UserInfoCubit>(context)
+    context
+        .read<UserInfoCubit>()
         .changeInfo(userName: userName, gmail: gmail, password: password);
     Navigator.pop(context);
   }

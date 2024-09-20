@@ -14,8 +14,8 @@ class _CategoriesListScreenState extends State<CategoriesListScreen> {
   List<List<String>> categories = [];
   @override
   void initState() {
-    BlocProvider.of<CategoriesCubit>(context).setCategories();
-    categories = BlocProvider.of<CategoriesCubit>(context).categories;
+    context.read<CategoriesCubit>().setCategories();
+    categories = context.read<CategoriesCubit>().categories;
     super.initState();
   }
 

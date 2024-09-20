@@ -67,8 +67,7 @@ class CartScreenBody extends StatelessWidget {
                   product: products[index],
                 ),
                 deleteAction: (context) {
-                  BlocProvider.of<CartProductCubit>(context)
-                      .unSaveProduct(index);
+                  context.read<CartProductCubit>().unSaveProduct(index);
                   HapticFeedback.vibrate();
                 },
                 confirmAction: (context) {

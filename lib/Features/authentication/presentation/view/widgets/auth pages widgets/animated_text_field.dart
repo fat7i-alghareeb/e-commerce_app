@@ -10,7 +10,7 @@ class AnimatedTextFormField extends StatelessWidget {
   final bool isValid;
   final String errorMessage;
   final IconData prefixIcon;
-
+  final TextInputType? textInputType;
   const AnimatedTextFormField({
     super.key,
     required this.controller,
@@ -20,6 +20,7 @@ class AnimatedTextFormField extends StatelessWidget {
     required this.isValid,
     required this.errorMessage,
     required this.prefixIcon,
+    this.textInputType,
   });
 
   @override
@@ -45,6 +46,7 @@ class AnimatedTextFormField extends StatelessWidget {
         isValid: isValid,
         hintText: hintText,
         errorMessage: errorMessage,
+        textInputType: textInputType,
       ),
     );
   }
