@@ -1,41 +1,41 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user.dart';
+part of 'user_entity.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class UserAdapter extends TypeAdapter<User> {
+class UserEntityAdapter extends TypeAdapter<UserEntity> {
   @override
   final int typeId = 1;
 
   @override
-  User read(BinaryReader reader) {
+  UserEntity read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return User(
+    return UserEntity(
+      isDarkTheme: fields[3] as bool,
       userName: fields[0] as String,
-      gmail: fields[1] as String,
-      password: fields[2] as String,
-      lightThem: fields[3] as bool,
+      email: fields[1] as String,
+      uId: fields[2] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, User obj) {
+  void write(BinaryWriter writer, UserEntity obj) {
     writer
       ..writeByte(4)
       ..writeByte(0)
       ..write(obj.userName)
       ..writeByte(1)
-      ..write(obj.gmail)
+      ..write(obj.email)
       ..writeByte(2)
-      ..write(obj.password)
+      ..write(obj.uId)
       ..writeByte(3)
-      ..write(obj.lightThem);
+      ..write(obj.isDarkTheme);
   }
 
   @override
@@ -44,7 +44,7 @@ class UserAdapter extends TypeAdapter<User> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is UserAdapter &&
+      other is UserEntityAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

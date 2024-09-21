@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:store_app/Features/authentication/data/domain/entity/user_entity.dart';
+import 'package:store_app/utils/router/router_paths.dart';
 import '../../../../utils/assets.dart';
 import '../../../../utils/helper_extensions.dart';
 
@@ -6,7 +9,6 @@ import '../../../../shared/cubits/cubit/user_info_cubit.dart';
 import '../../../../shared/cubits/cubit/user_info_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../shared/models/user.dart';
 import 'widgets/custom_divider.dart';
 import 'widgets/profile_info.dart';
 
@@ -17,10 +19,7 @@ class UserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.only(top: 70),
-          child: UserScreenBody(),
-        ),
+        child: UserScreenBody(),
       ),
     );
   }
@@ -34,11 +33,10 @@ class UserScreenBody extends StatefulWidget {
 }
 
 class _UserScreenBodyState extends State<UserScreenBody> {
-  late User userInfo;
+  late UserEntity userInfo;
   @override
   void initState() {
     userInfo = context.read<UserInfoCubit>().user;
-
     super.initState();
   }
 
@@ -51,11 +49,14 @@ class _UserScreenBodyState extends State<UserScreenBody> {
         }
         return ListView(
           children: [
+            const SizedBox(
+              height: 70,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: ProfileInfo(
                 userName: userInfo.userName,
-                gmail: userInfo.gmail,
+                gmail: userInfo.email,
               ),
             ),
             const SizedBox(height: 15),
@@ -79,14 +80,7 @@ class _UserScreenBodyState extends State<UserScreenBody> {
             const SizedBox(height: 25),
             const Align(
               alignment: Alignment.center,
-              child: Text(
-                "Sign Out",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.red,
-                ),
-              ),
+              child: SignOutButton(),
             ),
             const SizedBox(height: 20),
 
@@ -94,6 +88,38 @@ class _UserScreenBodyState extends State<UserScreenBody> {
           ],
         );
       },
+    );
+  }
+}
+
+class SignOutButton extends StatefulWidget {
+  const SignOutButton({
+    super.key,
+  });
+
+  @override
+  State<SignOutButton> createState() => _SignOutButtonState();
+}
+
+class _SignOutButtonState extends State<SignOutButton> {
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: () async {
+        await FirebaseAuth.instance.signOut();
+        if (context.mounted) {
+          Navigator.pushReplacementNamed(context, KRouter.authPage,
+              arguments: 1);
+        }
+      },
+      child: const Text(
+        "Sign Out",
+        style: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.bold,
+          color: Colors.red,
+        ),
+      ),
     );
   }
 }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../../utils/helper_extensions.dart';
-
 import '../../../../../../shared/cubits/cubit/user_info_cubit.dart';
+import '../../../../../../utils/helper_extensions.dart';
 
 class ThemeSwitch extends StatefulWidget {
   const ThemeSwitch({
@@ -13,11 +12,11 @@ class ThemeSwitch extends StatefulWidget {
 }
 
 class _ThemeSwitchState extends State<ThemeSwitch> {
-  late bool lightTheme;
+  late bool isDark;
 
   @override
   void initState() {
-    lightTheme = context.read<UserInfoCubit>().userTheme;
+    isDark = context.read<UserInfoCubit>().isDarkTheme;
     super.initState();
   }
 
@@ -35,7 +34,7 @@ class _ThemeSwitchState extends State<ThemeSwitch> {
           ),
         ),
         Switch(
-          value: !lightTheme,
+          value: isDark,
 
           activeColor: context.onPrimaryColor(),
           inactiveThumbColor: context.accentColor(), //
@@ -44,8 +43,8 @@ class _ThemeSwitchState extends State<ThemeSwitch> {
           onChanged: (value) {
             setState(
               () {
-                lightTheme = !value;
-                context.read<UserInfoCubit>().changeTheme();
+                isDark = value;
+                context.read<UserInfoCubit>().changeTheme(isDark);
               },
             );
           },

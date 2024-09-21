@@ -23,7 +23,6 @@ class SignInCubit extends Cubit<SignInState> {
         emit(SignInFailure(message: failure.message));
       },
       (user) {
-        log(user.userName);
         emit(SignInSuccess(userEntity: user));
       },
     );

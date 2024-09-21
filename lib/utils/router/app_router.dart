@@ -23,7 +23,8 @@ class AppRouter {
       case KRouter.authPage:
         return MaterialPageRoute(
           builder: (_) {
-            return const AuthPages();
+            final int? initialPage = settings.arguments as int?;
+            return AuthPages(initialPage: initialPage ?? 0);
           },
         );
       case KRouter.verificationScreen:

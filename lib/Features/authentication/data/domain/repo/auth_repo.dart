@@ -20,7 +20,10 @@ class AuthRepo {
         password: password,
         userName: userName,
       );
-      return right(UserModel.fromFirebase(user));
+      return right(UserModel.fromFirebase(
+        user: user,
+        isDarkTheme: false,
+      ));
     } catch (e) {
       return left(
         ServerFailure(
@@ -39,7 +42,9 @@ class AuthRepo {
         emailAddress: email,
         password: password,
       );
-      return right(UserModel.fromFirebase(user));
+      return right(UserModel.fromFirebase(
+        user: user,
+      ));
     } catch (e) {
       return left(
         ServerFailure(
@@ -52,7 +57,9 @@ class AuthRepo {
   Future<Either<Failure, UserEntity>> signInWithGoogle() async {
     try {
       final user = await firebaseAuthServices.signInWithGoogle();
-      return right(UserModel.fromFirebase(user));
+      return right(UserModel.fromFirebase(
+        user: user,
+      ));
     } catch (e) {
       return left(
         ServerFailure(e.toString()),

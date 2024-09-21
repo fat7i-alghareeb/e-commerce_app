@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../utils/helper_extensions.dart';
-
-import '../../../../../shared/cubits/cubit/user_info_cubit.dart';
 import 'edit_personal_info.dart';
 
 class ShowBottomSheetButton extends StatelessWidget {
@@ -67,9 +64,9 @@ class BottomSheetBody extends StatefulWidget {
 //todo fix textEditingController
 class _BottomSheetBodyState extends State<BottomSheetBody> {
   void _changeInfo({String? userName, String? gmail, String? password}) {
-    context
-        .read<UserInfoCubit>()
-        .changeInfo(userName: userName, gmail: gmail, password: password);
+    // context
+    //     .read<UserInfoCubit>()
+    //     .changeInfo(userName: userName, gmail: gmail, password: password);
     Navigator.pop(context);
   }
 
