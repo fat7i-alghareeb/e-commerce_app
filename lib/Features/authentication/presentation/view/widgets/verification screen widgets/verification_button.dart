@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class _VerificationButtonState extends State<VerificationButton> {
     super.initState();
     if (!_isEmailVerified) {
       timer = Timer.periodic(
-        const Duration(seconds: 3),
+        const Duration(seconds: 2),
         (timer) => checkVerification(),
       );
     }
@@ -68,15 +69,14 @@ class _VerificationButtonState extends State<VerificationButton> {
           HapticFeedback.heavyImpact();
 
           if (_isEmailVerified) {
-            if (!mounted) return;
-
             Navigator.pushReplacementNamed(
               context,
               KRouter.mainNavigator,
             );
           } else if (_canResendEmail) {
-            context.read<SignInCubit>().sendVerificationEmail();
             startResendTimer();
+
+            await context.read<SignInCubit>().sendVerificationEmail();
           }
         },
         animation: widget.animation,
